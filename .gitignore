@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+
+# Claude Code dev preview server (not needed to deploy)
+.claude/
+
+# Large source media — NOT used by the published site.
+# The site only uses cover.jpg + wedding.mp4 (already optimized, kept in the repo).
+*.mov
+Cover Image kopi and sandro .JPG
+
+# Design reference sticker sheet (not part of the invitation)
+illustrations.html
