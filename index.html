@@ -3,13 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
 <title>Sandro &amp; Kopi · Save the Date</title>
 <meta name="description" content="Save the Date — Sandro & Kopi are getting married in Syros, Greece on 13 September 2026." />
 <meta property="og:title" content="Sandro & Kopi — Save the Date" />
 <meta property="og:description" content="Syros, Greece · 13 September 2026" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="cover.jpg" />
+<meta property="og:url" content="https://sandrobetterfly.github.io/w_invitation/" />
+<meta property="og:image" content="https://sandrobetterfly.github.io/w_invitation/cover.jpg" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="1200" />
+<meta property="og:image:alt" content="Sandro and Kopi" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://sandrobetterfly.github.io/w_invitation/cover.jpg" />
+<meta name="theme-color" content="#E1EFEE" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S4 20 4 12a7 7 0 0 1 12-4 7 7 0 0 1 12 4c0 8-12 16-12 16z' fill='%23FF7653'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,8 +47,11 @@
     font-family:var(--sans); color:var(--ink);
     background:radial-gradient(120% 80% at 50% -10%, #FFFFFF 0%, var(--bg) 45%, var(--bg-2) 100%) fixed;
     -webkit-font-smoothing:antialiased;
-    min-height:100svh; overflow-x:hidden;
+    min-height:100vh; min-height:100svh; overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-user-select:none; user-select:none;
   }
+  input{ -webkit-user-select:text; user-select:text; }
   body::before{
     content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
     background-image:radial-gradient(var(--line) 1px, transparent 1px);
@@ -52,7 +62,7 @@
 
   .screen{
     position:relative; z-index:1;
-    min-height:100svh; width:100%;
+    min-height:100vh; min-height:100svh; width:100%;
     scroll-snap-align:start;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center;
@@ -143,14 +153,15 @@
 
   .pin-label{ font-family:var(--sans); font-size:11px; letter-spacing:1px; fill:var(--green); text-anchor:middle; font-weight:500; }
 
-  .boat-sail{ color:var(--sea); animation:boatsail 12s linear infinite, boatfade 12s linear infinite; }
-  @keyframes boatsail{
-    0%   { transform:translate(252px,452px); }
-    35%  { transform:translate(248px,360px); }
-    70%  { transform:translate(242px,278px); }
-    100% { transform:translate(236px,208px); }
+  .boat-sail{ color:var(--sea); opacity:0; }
+  .screen2.in .boat-sail{ animation:boatsail 11s linear infinite, boatfade 11s linear infinite; }
+  @keyframes boatsail{   /* sails left -> right toward Syros as a hint */
+    0%   { transform:translate(14px,252px); }
+    35%  { transform:translate(74px,224px); }
+    70%  { transform:translate(140px,198px); }
+    100% { transform:translate(186px,184px); }
   }
-  @keyframes boatfade{ 0%{ opacity:0; } 7%{ opacity:1; } 85%{ opacity:1; } 100%{ opacity:0; } }
+  @keyframes boatfade{ 0%{ opacity:0; } 3%{ opacity:1; } 88%{ opacity:1; } 100%{ opacity:0; } }
   .boat-bob{ animation:boatbob 2.6s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
   @keyframes boatbob{ 0%,100%{ transform:translateY(0) rotate(-3deg); } 50%{ transform:translateY(-1.5px) rotate(3deg); } }
 
@@ -263,6 +274,17 @@
   .btn-primary:disabled{ opacity:.6; cursor:default; }
   .rsvp-done .big{ font-size:46px; line-height:1; margin-bottom:6px; }
   .confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:60; }
+
+  /* shorter phones (e.g. iPhone SE) — tighten so screen 3 fits without scrolling */
+  @media (max-height:740px){
+    .screen{ padding:40px 20px; }
+    .video-frame{ width:min(44vw,168px); }
+    .itinerary{ font-size:14px; margin-bottom:6px; }
+    .stage{ margin-bottom:10px; }
+    .countdown{ margin-top:10px; }
+    .cell .num{ font-size:36px; }
+    .btn-rsvp{ margin-top:16px; padding:12px 24px; }
+  }
 
   @media (prefers-reduced-motion:reduce){
     *{ animation:none !important; }
@@ -525,6 +547,13 @@
      appends e.parameter.first / .last / .respondedAt to the sheet, Deploy as Web app
      ("Anyone" access), then put the /exec URL below. Empty '' = popup works without saving. */
   const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxxkY8ChxUn4fzQljeUcQ9TD7Ka43Flky3xqjqODG_Rl6vwzFqqbUAYLDAik1_bdUH/exec';
+
+  /* Always open on the first screen — in-app browsers (WhatsApp/Messenger/Instagram)
+     and the back-forward cache can otherwise restore a previous scroll position. */
+  const toTop = () => window.scrollTo(0, 0);
+  toTop();
+  window.addEventListener('load', toTop);
+  window.addEventListener('pageshow', toTop);
 
   /* generate the hand-drawn wavy borders for the photo + video frames */
   function wavyPath(w,h,amp,wl){
