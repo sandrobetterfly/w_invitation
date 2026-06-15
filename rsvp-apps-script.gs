@@ -29,13 +29,14 @@ function doPost(e) {
 
     // Add a header row the first time.
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['First name', 'Last name', 'Responded at (browser)', 'Received at (sheet)']);
+      sheet.appendRow(['First name', 'Last name', 'Sent by', 'Responded at (browser)', 'Received at (sheet)']);
     }
 
     var p = (e && e.parameter) || {};
     sheet.appendRow([
       p.first || '',
       p.last || '',
+      p.sender || '',
       p.respondedAt || '',
       new Date()
     ]);

@@ -257,9 +257,9 @@
   .btn-rsvp:active{ transform:translateY(0) scale(.98); }
   .btn-rsvp .ill{ color:#fff; }
 
-  .rsvp-modal{ position:fixed; inset:0; z-index:50; display:none; align-items:center; justify-content:center; padding:22px; background:rgba(8,40,70,.45); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
-  .rsvp-modal.open{ display:flex; animation:rise .25s both; }
-  .rsvp-card{ position:relative; width:100%; max-width:350px; background:#FCF7EF; border:1px solid #F1E8D9; border-radius:28px; padding:30px 26px 30px; text-align:center; box-shadow:0 30px 70px -20px rgba(8,40,70,.5); animation:pop .35s cubic-bezier(.2,.8,.3,1.2) both; }
+  .rsvp-modal{ position:fixed; left:0; right:0; top:0; height:100%; z-index:50; display:none; overflow-y:auto; padding:20px; background:rgba(8,40,70,.45); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+  .rsvp-modal.open{ display:flex; }
+  .rsvp-card{ position:relative; width:100%; max-width:350px; margin:auto; background:#FCF7EF; border:1px solid #F1E8D9; border-radius:28px; padding:30px 26px 30px; text-align:center; box-shadow:0 30px 70px -20px rgba(8,40,70,.5); animation:pop .35s cubic-bezier(.2,.8,.3,1.2) both; }
   @keyframes pop{ from{ transform:translateY(16px) scale(.96); opacity:0; } to{ transform:none; opacity:1; } }
   .rsvp-close{ position:absolute; top:12px; right:16px; border:none; background:none; font-size:24px; line-height:1; color:var(--ink-soft); cursor:pointer; }
   .rsvp-deco{ display:block; margin:0 auto 6px; color:var(--gold); }
@@ -269,6 +269,14 @@
   .rsvp-card input{ font-family:var(--sans); font-size:15px; text-align:center; padding:13px 14px; border:1.5px solid var(--line); border-radius:14px; outline:none; transition:border-color .2s; background:#fff; color:var(--ink); }
   .rsvp-card input::placeholder{ color:#A7BBC8; }
   .rsvp-card input:focus{ border-color:var(--gold); }
+  .rsvp-q{ margin-top:2px; }
+  .rsvp-q-label{ display:block; font-size:13px; color:var(--ink-soft); margin-bottom:9px; }
+  .rsvp-choices{ display:flex; gap:10px; }
+  .choice{ flex:1; cursor:pointer; margin:0; }
+  .choice input{ position:absolute; opacity:0; width:0; height:0; }
+  .choice span{ display:block; padding:11px 8px; border-radius:14px; border:1.5px solid var(--line); font-size:15px; color:var(--ink); background:#fff; transition:border-color .2s, background .2s, color .2s; }
+  .choice input:checked + span{ border-color:var(--gold); background:var(--gold); color:#fff; }
+  .choice input:focus-visible + span{ outline:2px solid var(--sea); outline-offset:2px; }
   .btn-primary{ margin-top:8px; font-family:var(--sans); font-size:16px; font-weight:500; letter-spacing:.05em; color:#fff; background:var(--gold); border:none; padding:14px; border-radius:30px; cursor:pointer; box-shadow:0 12px 24px -10px rgba(255,118,83,.7); transition:transform .15s ease, opacity .2s; }
   .btn-primary:hover{ transform:translateY(-1px); } .btn-primary:active{ transform:scale(.98); }
   .btn-primary:disabled{ opacity:.6; cursor:default; }
@@ -478,7 +486,7 @@
     <span class="d float gold" style="top:12%;right:11%;animation-delay:-3.5s"><svg class="ill" width="14" height="14"><use href="#i-sparkle"/></svg></span>
   </div>
   <div class="inner">
-    <p class="itinerary reveal" style="--d:.1s">First, the sea <i>·</i> then the ceremony <i>·</i> then dinner &amp; dancing</p>
+    <p class="itinerary reveal" style="--d:.1s">First, the sea <i>·</i> then the ceremony <i>·</i> then dinner &amp; dancing <i>·</i> and much more&hellip;</p>
     <div class="stage reveal" style="--d:.2s" aria-label="Wedding film">
       <span class="orbit olive" aria-hidden="true"><svg class="ill" width="42" height="42"><use href="#i-olive"/></svg></span>
       <span class="orbit sun" aria-hidden="true"><svg class="ill" width="38" height="38"><use href="#i-sun"/></svg></span>
@@ -520,8 +528,15 @@
       <h3>You're coming?! &#9825;</h3>
       <p class="sub">Pop your name below and we'll save you a spot by the sea.</p>
       <form id="rsvpForm">
-        <input name="first" placeholder="First name" autocomplete="given-name" required />
-        <input name="last" placeholder="Last name" autocomplete="family-name" required />
+        <input name="first" placeholder="First name" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" required />
+        <input name="last" placeholder="Last name" autocomplete="family-name" autocapitalize="words" enterkeyhint="done" required />
+        <div class="rsvp-q">
+          <span class="rsvp-q-label">Who sent you this invitation?</span>
+          <div class="rsvp-choices">
+            <label class="choice"><input type="radio" name="sender" value="Kopi" required /><span>Kopi</span></label>
+            <label class="choice"><input type="radio" name="sender" value="Sandro" /><span>Sandro</span></label>
+          </div>
+        </div>
         <button type="submit" class="btn-primary" id="rsvpSubmit">Send</button>
       </form>
     </div>
@@ -703,21 +718,41 @@
 
   /* ---------- RSVP popup ---------- */
   const modal = document.getElementById('rsvpModal');
+  /* shrink the modal to the visible area when the phone keyboard opens,
+     so the card re-centers above the keyboard instead of being covered. */
+  function syncModalViewport(){
+    if(!window.visualViewport || !modal.classList.contains('open')) return;
+    const vv = window.visualViewport;
+    modal.style.height = vv.height + 'px';
+    modal.style.top = vv.offsetTop + 'px';
+  }
+  if(window.visualViewport){
+    visualViewport.addEventListener('resize', syncModalViewport);
+    visualViewport.addEventListener('scroll', syncModalViewport);
+  }
   function openRsvp(originEl){
     if(originEl){ const r = originEl.getBoundingClientRect(); burst(r.left+r.width/2, r.top+r.height/2, 60); }
     modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    syncModalViewport();
     setTimeout(() => { const i = modal.querySelector('input'); if(i) i.focus(); }, 250);
   }
-  function closeRsvp(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+  function closeRsvp(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modal.style.height=''; modal.style.top=''; }
   document.getElementById('openRsvp').addEventListener('click', e => openRsvp(e.currentTarget));
   document.getElementById('rsvpClose').addEventListener('click', closeRsvp);
   modal.addEventListener('click', e => { if(e.target === modal) closeRsvp(); });
   addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) closeRsvp(); });
+  /* keep the focused text field in view above the keyboard */
+  modal.querySelectorAll('input:not([type=radio])').forEach(inp => {
+    inp.addEventListener('focus', () => setTimeout(() => {
+      syncModalViewport();
+      inp.scrollIntoView({ block:'center', behavior:'smooth' });
+    }, 300));
+  });
 
   document.getElementById('rsvpForm').addEventListener('submit', async e => {
     e.preventDefault();
     const f = e.target;
-    const data = { first:f.first.value.trim(), last:f.last.value.trim(), respondedAt:new Date().toISOString() };
+    const data = { first:f.first.value.trim(), last:f.last.value.trim(), sender:(f.sender.value || ''), respondedAt:new Date().toISOString() };
     const btn = document.getElementById('rsvpSubmit');
     btn.disabled = true; btn.textContent = 'Sending…';
     try{
