@@ -45,20 +45,13 @@
   html{ height:100%; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
   body{
     font-family:var(--sans); color:var(--ink);
-    background:radial-gradient(120% 80% at 50% -10%, #FFFFFF 0%, var(--bg) 45%, var(--bg-2) 100%) fixed;
+    background:var(--bg-2);
     -webkit-font-smoothing:antialiased;
     min-height:100vh; min-height:100svh; overflow-x:hidden;
     -webkit-tap-highlight-color:transparent;
     -webkit-user-select:none; user-select:none;
   }
   input{ -webkit-user-select:text; user-select:text; }
-  body::before{
-    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image:radial-gradient(var(--line) 1px, transparent 1px);
-    background-size:26px 26px; opacity:.35;
-    -webkit-mask-image:radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 78%);
-            mask-image:radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 78%);
-  }
 
   .screen{
     position:relative; z-index:1;
@@ -67,6 +60,14 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center;
     padding:64px 22px;
+    background:radial-gradient(120% 80% at 50% -10%, #FFFFFF 0%, var(--bg) 45%, var(--bg-2) 100%);
+  }
+  .screen::before{
+    content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:radial-gradient(var(--line) 1px, transparent 1px);
+    background-size:26px 26px; opacity:.35;
+    -webkit-mask-image:radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 78%);
+            mask-image:radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 78%);
   }
   .inner{ width:100%; max-width:460px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:1; }
 
@@ -283,17 +284,6 @@
   .rsvp-done .big{ font-size:46px; line-height:1; margin-bottom:6px; }
   .confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:60; }
 
-  /* shorter phones (e.g. iPhone SE) — tighten so screen 3 fits without scrolling */
-  @media (max-height:740px){
-    .screen{ padding:40px 20px; }
-    .video-frame{ width:min(44vw,168px); }
-    .itinerary{ font-size:14px; margin-bottom:6px; }
-    .stage{ margin-bottom:10px; }
-    .countdown{ margin-top:10px; }
-    .cell .num{ font-size:36px; }
-    .btn-rsvp{ margin-top:16px; padding:12px 24px; }
-  }
-
   @media (prefers-reduced-motion:reduce){
     *{ animation:none !important; }
     .reveal{ opacity:1 !important; transform:none !important; }
@@ -395,7 +385,7 @@
     <h1 class="hero-names reveal" style="--d:.05s">Sandro<span class="amp">&amp;</span>Kopi</h1>
     <div class="photo-frame mediaframe breathe reveal" style="--d:.18s">
       <div class="media">
-        <img src="cover.jpg" alt="Sandro and Kopi" />
+        <img src="cover.jpg" alt="Sandro and Kopi" decoding="async" fetchpriority="high" />
       </div>
       <svg class="wavy" viewBox="0 0 200 250" preserveAspectRatio="none" aria-hidden="true"><path d=""/></svg>
       <span class="photo-label l1" aria-hidden="true">soon!</span>
