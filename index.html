@@ -151,6 +151,8 @@
   @keyframes fadein{ to{ opacity:1; } }
 
   .island-name{ font-family:var(--sans); font-size:11px; letter-spacing:1px; fill:var(--ink); text-anchor:middle; pointer-events:none; }
+  .isle-name{ font-family:var(--sans); font-size:11px; letter-spacing:.5px; fill:var(--ink); text-anchor:middle; pointer-events:none; opacity:0; transition:opacity .35s ease; }
+  .isle-name.show{ opacity:1; }
   .found-label{ opacity:0; transition:opacity .5s ease .2s; }
   .found-label.show{ opacity:1; }
 
@@ -465,7 +467,6 @@
         <!-- Syros, highlighted -->
         <circle class="ripple" cx="200" cy="178" r="40"/>
         <g class="island" data-name="Syros" style="--d:0s" transform="translate(200,178) rotate(10) scale(1.5)"><use class="syros" href="#bA"/></g>
-        <text class="island-name found-label" x="200" y="214">Syros</text>
 
         <!-- Ermoupoli pin on the east coast -->
         <g transform="translate(224,172)"><g class="map-pin">
@@ -652,11 +653,28 @@
     if(m) tapHint.setAttribute('transform', 'translate(' + m[1] + ',' + m[2] + ')');
   })();
 
+  /* a name label under every island, revealed when that island is tapped */
+  islands.forEach(g => {
+    const tr = g.getAttribute('transform') || '';
+    const tm = tr.match(/translate\(\s*([-\d.]+)[ ,]+([-\d.]+)/);
+    if(!tm) return;
+    const sm = tr.match(/scale\(\s*([-\d.]+)/);
+    const s = sm ? parseFloat(sm[1]) : 1;
+    const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    label.setAttribute('class', 'isle-name');
+    label.setAttribute('x', tm[1]);
+    label.setAttribute('y', (parseFloat(tm[2]) + 22 * s + 3).toFixed(1));
+    label.textContent = g.dataset.name;
+    mapSvg.appendChild(label);
+    g._label = label;
+  });
+
   let islandFound = false, firstTap = false;
   islands.forEach(g => {
     g.addEventListener('click', () => {
       if(!firstTap){ firstTap = true; mapSvg.classList.add('tapped'); }
       const name = g.dataset.name;
+      if(g._label) g._label.classList.add('show');
       if (name === 'Syros') {
         if (islandFound) return;
         islandFound = true;
