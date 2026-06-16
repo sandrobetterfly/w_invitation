@@ -42,7 +42,7 @@
     --sans:'Jost', system-ui, sans-serif;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ height:100%; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+  html{ height:100%; scroll-snap-type:y mandatory; }
   body{
     font-family:var(--sans); color:var(--ink);
     background:var(--bg-2);
@@ -576,10 +576,11 @@
 
   /* Always open on the first screen — in-app browsers (WhatsApp/Messenger/Instagram)
      and the back-forward cache can otherwise restore a previous scroll position. */
-  const toTop = () => window.scrollTo(0, 0);
+  const toTop = () => { window.scrollTo(0, 0); document.documentElement.scrollTop = 0; };
   toTop();
-  window.addEventListener('load', toTop);
-  window.addEventListener('pageshow', toTop);
+  addEventListener('DOMContentLoaded', toTop);
+  addEventListener('load', () => { toTop(); requestAnimationFrame(toTop); setTimeout(toTop, 80); });
+  addEventListener('pageshow', () => { toTop(); requestAnimationFrame(toTop); });
 
   /* generate the hand-drawn wavy borders for the photo + video frames */
   function wavyPath(w,h,amp,wl){
