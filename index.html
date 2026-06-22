@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
 <title>Sandro &amp; Kopi · Save the Date</title>
-<meta name="description" content="Save the Date — Sandro & Kopi are getting married in Syros, Greece on 13 September 2026." />
+<meta name="description" content="Save the Date — Sandro & Kopi are getting married in Syros, Greece on 15 September 2026." />
 <meta property="og:title" content="Sandro & Kopi — Save the Date" />
-<meta property="og:description" content="Syros, Greece · 13 September 2026" />
+<meta property="og:description" content="Syros, Greece · 15 September 2026" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sandrobetterfly.github.io/w_invitation/" />
 <meta property="og:image" content="https://sandrobetterfly.github.io/w_invitation/cover.jpg" />
@@ -65,7 +65,7 @@
     scroll-snap-align:start;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center;
-    padding:64px 22px;
+    padding:52px 22px;
   }
   .inner{ width:100%; max-width:460px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:1; }
 
@@ -203,7 +203,7 @@
   .ph svg{ opacity:.9; } .ph small{ font-size:9.5px; letter-spacing:.22em; text-transform:uppercase; }
 
   .photo-frame{ width:min(62vw,236px); aspect-ratio:4/5; margin:16px auto 26px; }
-  .video-frame{ width:min(50vw,194px); aspect-ratio:9/16; }
+  .video-frame{ width:min(49vw,186px); aspect-ratio:9/16; }
 
   .frame{ position:absolute; inset:8%; border-radius:12px; overflow:hidden; background:#CDEAEE; z-index:2; cursor:pointer; box-shadow:0 14px 34px -22px rgba(10,70,130,.45); }
   .frame video, .frame .placeholder{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
@@ -226,7 +226,7 @@
   .orbit.boat{ bottom:-3%; right:0; color:var(--sea); animation-delay:-4.5s; }
   @keyframes float{ 50%{ transform:translateY(-12px) rotate(2deg);} }
 
-  .countdown{ width:100%; max-width:330px; margin-top:16px; }
+  .countdown{ width:100%; max-width:330px; margin-top:10px; }
   .countdown h2{ font-family:var(--sans); font-weight:400; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:14px; }
   .clock{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
   .cell{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:12px 4px 9px; box-shadow:0 10px 24px -20px rgba(22,52,74,.7); }
@@ -406,7 +406,7 @@
     </div>
     <div class="eyebrow lg reveal" style="--d:.3s">Save the Date</div>
     <div class="rule reveal" style="--d:.36s"></div>
-    <p class="hero-when reveal" style="--d:.45s">Syros, Greece · 13.09.2026</p>
+    <p class="hero-when reveal" style="--d:.45s">Syros, Greece · 15.09.2026</p>
   </div>
   <div class="scroll-hint reveal" style="--d:.8s"><span>Scroll</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
 </section>
@@ -496,7 +496,8 @@
     <span class="d float gold" style="top:12%;right:11%;animation-delay:-3.5s"><svg class="ill" width="14" height="14"><use href="#i-sparkle"/></svg></span>
   </div>
   <div class="inner">
-    <p class="itinerary reveal" style="--d:.1s">First, the sea <i>·</i> then the ceremony <i>·</i> then dinner &amp; dancing <i>·</i> and much more&hellip;</p>
+    <div class="eyebrow lg reveal" style="--d:.05s">September 15th</div>
+    <p class="itinerary reveal" style="--d:.12s">First, the sea <i>·</i> then the ceremony <i>·</i> then dinner &amp; dancing <i>·</i> and much more&hellip;</p>
     <div class="stage reveal" style="--d:.2s" aria-label="Wedding film">
       <span class="orbit olive" aria-hidden="true"><svg class="ill" width="42" height="42"><use href="#i-olive"/></svg></span>
       <span class="orbit sun" aria-hidden="true"><svg class="ill" width="38" height="38"><use href="#i-sun"/></svg></span>
@@ -564,7 +565,7 @@
      CONFIG — set GO_LIVE to the day you send the invite.
      RSVP deadline auto-computes to 7 days later.
      ============================================================ */
-  const GO_LIVE = new Date('2026-06-18T18:00:00');
+  const GO_LIVE = new Date('2026-06-22T23:00:00');
   const RSVP_DEADLINE = new Date(GO_LIVE.getTime() + 7 * 24 * 60 * 60 * 1000);
 
   /* Google Sheet sync: paste your Apps Script web-app URL here once the sheet is ready.
