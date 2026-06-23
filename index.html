@@ -242,7 +242,8 @@
 
   /* ---------- dot nav ---------- */
   .nav{ position:fixed; right:16px; top:50%; transform:translateY(-50%); z-index:20; display:flex; flex-direction:column; gap:14px; }
-  .nav button{ width:9px; height:9px; padding:0; border-radius:50%; border:1.5px solid var(--sea-light); background:transparent; cursor:pointer; transition:all .3s ease; }
+  .nav button{ position:relative; width:9px; height:9px; padding:0; border-radius:50%; border:1.5px solid var(--sea-light); background:transparent; cursor:pointer; transition:all .3s ease; }
+  .nav button::after{ content:""; position:absolute; inset:-7px; border-radius:50%; }
   .nav button.active{ background:var(--gold); border-color:var(--gold); transform:scale(1.25); }
 
   /* ---------- itinerary line (screen 3) ---------- */
@@ -723,14 +724,25 @@
      interaction (the map game on screen 2 guarantees one) and unmute if we have it;
      otherwise it falls back to muted and the speaker button unmutes on tap. */
   const frame=document.getElementById('frame'), film=document.getElementById('film'), soundBtn=document.getElementById('sound');
-  let userGesture=false;
-  ['pointerdown','touchstart','keydown'].forEach(ev =>
-    window.addEventListener(ev, () => { userGesture=true; }, { once:true, passive:true }));
   if(film){
     frame.classList.add('has-video'); frame.querySelector('.placeholder').style.display='none';
     const reflectSound=()=>{ soundBtn.style.opacity = film.muted ? .75 : 1; };
+
+    /* The first tap (e.g. on an island) "unlocks" the video: we play it muted for a
+       beat so iOS will then allow it to play WITH SOUND when screen 3 appears.
+       Without this, iOS rejects the un-muted play and the music wouldn't start. */
+    let unlocked=false;
+    function unlock(){
+      if(unlocked) return; unlocked=true;
+      film.muted=true;
+      film.play().then(()=>{ film.pause(); film.currentTime=0; }).catch(()=>{});
+    }
+    ['pointerdown','touchstart','keydown'].forEach(ev =>
+      window.addEventListener(ev, unlock, { once:true, passive:true }));
+
     const playWithSound=()=>{
-      film.muted = !userGesture;
+      film.muted = !unlocked;
+      film.currentTime = 0;
       film.play().then(reflectSound).catch(()=>{ film.muted=true; film.play().catch(()=>{}); reflectSound(); });
     };
     const toggle=()=>{ film.muted=!film.muted; if(!film.muted) film.play().catch(()=>{}); reflectSound(); };
