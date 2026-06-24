@@ -581,19 +581,21 @@
      ("Anyone" access), then put the /exec URL below. Empty '' = popup works without saving. */
   const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxxkY8ChxUn4fzQljeUcQ9TD7Ka43Flky3xqjqODG_Rl6vwzFqqbUAYLDAik1_bdUH/exec';
 
-  /* Always open on the first screen. Scroll-snap is what makes the browser
-     restore/snap to the previously viewed screen on reload, so we keep snapping
-     OFF until we've reset to the top, then switch it on (via the .snap class). */
+  /* Always open on the first screen. Scroll-snap is what makes the browser snap
+     back to the previously viewed screen on reload, so we keep snapping OFF until
+     the page has fully loaded (all reflows done) and we've reset to the top —
+     then enable it. */
   const root = document.documentElement;
-  function resetToTop(){
-    root.classList.remove('snap');         // snapping off — nothing to snap-restore to
-    window.scrollTo(0, 0);
-    requestAnimationFrame(() => window.scrollTo(0, 0));
-    setTimeout(() => { window.scrollTo(0, 0); root.classList.add('snap'); }, 150);
-  }
-  resetToTop();
-  addEventListener('load', resetToTop);
-  addEventListener('pageshow', resetToTop);
+  const toTop = () => window.scrollTo(0, 0);
+  function snapOn(){ toTop(); root.classList.add('snap'); }
+  function armSnap(){ setTimeout(snapOn, 60); }
+  toTop();
+  if(document.readyState === 'complete') armSnap();
+  else addEventListener('load', armSnap);
+  /* back/forward cache restore (e.g. Back button): reset + re-enable snapping */
+  addEventListener('pageshow', (e) => {
+    if(e.persisted){ root.classList.remove('snap'); toTop(); armSnap(); }
+  });
 
   /* generate the hand-drawn wavy borders for the photo + video frames */
   function wavyPath(w,h,amp,wl){
