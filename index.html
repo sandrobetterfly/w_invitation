@@ -509,7 +509,7 @@
       <div class="video-frame mediaframe breathe">
         <div class="frame media" id="frame" role="button" tabindex="0" aria-label="Play wedding film with sound">
           <div class="placeholder" aria-hidden="true"><span class="pin2"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><small>Your film here</small></span></div>
-          <video id="film" src="wedding.mp4" poster="cover.jpg" muted playsinline preload="metadata"></video>
+          <video id="film" src="wedding.mp4" poster="cover.jpg" muted loop playsinline preload="metadata"></video>
           <button class="sound" id="sound" aria-label="Toggle sound"><svg id="sound-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg></button>
         </div>
         <svg class="wavy" viewBox="0 0 200 356" preserveAspectRatio="none" aria-hidden="true"><path d=""/></svg>
@@ -557,6 +557,11 @@
       <div class="big">&#127881;</div>
       <h3>Yay &mdash; see you in Syros!</h3>
       <p class="sub">Your yes is in &#9825; we can't wait to dance with you.</p>
+    </div>
+    <div id="rsvpAlready" class="rsvp-done" hidden>
+      <div class="big">&#128140;</div>
+      <h3>You've already RSVP'd!</h3>
+      <p class="sub">You have already sent the RSVP &#9825; we can't wait to see you in Syros.</p>
     </div>
   </div>
 </div>
@@ -802,11 +807,30 @@
     visualViewport.addEventListener('resize', syncModalViewport);
     visualViewport.addEventListener('scroll', syncModalViewport);
   }
+  /* one RSVP per device — remembered in this browser */
+  const SENT_KEY = 'rsvp_sent_v1';
+  const openBtn = document.getElementById('openRsvp');
+  const stepEl = document.getElementById('rsvpStep'),
+        thanksEl = document.getElementById('rsvpThanks'),
+        alreadyEl = document.getElementById('rsvpAlready');
+  let alreadySent = false;
+  try { alreadySent = !!localStorage.getItem(SENT_KEY); } catch(e){}
+  function markRsvpSent(){
+    alreadySent = true;
+    try { localStorage.setItem(SENT_KEY, '1'); } catch(e){}
+    openBtn.innerHTML = 'RSVP sent &#10003;';
+  }
+  if(alreadySent) markRsvpSent();
+
   function openRsvp(originEl){
-    if(originEl){ const r = originEl.getBoundingClientRect(); burst(r.left+r.width/2, r.top+r.height/2, 60); }
+    if(alreadySent){
+      stepEl.hidden = true; thanksEl.hidden = true; alreadyEl.hidden = false;
+    } else if(originEl){
+      const r = originEl.getBoundingClientRect(); burst(r.left+r.width/2, r.top+r.height/2, 60);
+    }
     modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
     syncModalViewport();
-    setTimeout(() => { const i = modal.querySelector('input'); if(i) i.focus(); }, 250);
+    if(!alreadySent) setTimeout(() => { const i = modal.querySelector('input'); if(i) i.focus(); }, 250);
   }
   function closeRsvp(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modal.style.height=''; modal.style.top=''; }
   document.getElementById('openRsvp').addEventListener('click', e => openRsvp(e.currentTarget));
@@ -836,6 +860,7 @@
     }catch(err){ /* no-cors response is opaque — assume delivered */ }
     document.getElementById('rsvpStep').hidden = true;
     document.getElementById('rsvpThanks').hidden = false;
+    markRsvpSent();
     burst(innerWidth/2, innerHeight*0.42, 90);
   });
 </script>
