@@ -43,7 +43,7 @@
   .wrap{ width:100%; max-width:600px; margin:0 auto; padding:0 22px calc(env(safe-area-inset-bottom) + 40px); position:relative; z-index:1; }
 
   /* ---------- top bar ---------- */
-  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 22px 8px; background:#1593F2; }
+  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 22px 8px; background:#3B82F6; }
   .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--gold); text-decoration:none; }
   .back svg{ width:16px; height:16px; }
   .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:var(--gold); }
@@ -141,6 +141,7 @@
 
   /* ---------- embedded Ermoupoli map ---------- */
   .map-card{ padding:0; overflow:hidden; border-color:#D8EBEE; }
+  .map-card-link{ margin:0; padding:13px 18px; justify-content:center; border-top:1px solid #E1EEF0; }
   .map-frame{ position:relative; min-height:310px; background:var(--sea-pale); }
   .map-frame iframe{ display:block; width:100%; height:310px; border:0; filter:saturate(.9) contrast(.98); }
   .pin-link{ position:absolute; display:flex; align-items:center; gap:9px; max-width:calc(100% - 24px); padding:10px 12px; border-radius:16px; background:rgba(255,255,255,.95); color:var(--ink); text-decoration:none; border:1px solid #E3EEF0; box-shadow:0 14px 28px -20px rgba(10,70,130,.8); }
@@ -318,10 +319,10 @@
       <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-pin"/></svg></span>
       <h2>Ermoupoli map</h2>
     </div>
-    <div class="card map-card" aria-label="Embedded Google Map for the wedding and hotel locations">
+    <div class="card map-card" aria-label="Map of the wedding and hotel locations in Ermoupoli, Syros">
       <div class="map-frame">
         <iframe
-          src="https://maps.google.com/maps?saddr=Saint%20Nicholas%20Church%20Ermoupoli%20Syros%20Greece&amp;daddr=Apollonion%20Palace%20Hotel%20Ermoupoli%20Syros%20Greece&amp;t=&amp;z=16&amp;ie=UTF8&amp;output=embed"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=24.9364%2C37.4409%2C24.9534%2C37.4519&amp;layer=mapnik&amp;marker=37.4464%2C24.9449"
           title="Ermoupoli wedding map"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -340,6 +341,9 @@
           </span>
         </a>
       </div>
+      <a class="map-link map-card-link" href="https://www.google.com/maps/search/?api=1&amp;query=Saint%20Nicholas%20Church%20Ermoupoli%20Syros%20Greece" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
     </div>
   </section>
 
