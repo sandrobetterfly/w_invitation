@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Guest Guide · Sandro &amp; Kopi · Syros</title>
+<meta name="description" content="How to get to Syros, where to stay, and what to know for Sandro & Kopi's wedding on 15 September 2026." />
+<meta property="og:title" content="Sandro & Kopi — Guest Guide to Syros" />
+<meta property="og:description" content="Getting there, where to stay, the ceremony & more." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wedding.khasia.ge/details" />
+<meta property="og:image" content="https://wedding.khasia.ge/cover.jpg" />
+<meta name="theme-color" content="#E1EFEE" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S4 20 4 12a7 7 0 0 1 12-4 7 7 0 0 1 12 4c0 8-12 16-12 16z' fill='%23FF7653'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#E1EFEE; --bg-2:#CCE6E6; --paper:#FFFFFF;
+    --ink:#0A4682; --ink-soft:#557FA4;
+    --sea:#075BB4; --sea-light:#6FCAD6; --sea-pale:#C6E7EC;
+    --gold:#FF7653; --pink:#EC8CBC; --green:#2E9E5B; --line:#BCDBDC;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Jost', system-ui, sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--sans); color:var(--ink);
+    background-color:var(--bg-2);
+    background-image:
+      radial-gradient(rgba(140,175,180,.2) 1px, transparent 1.5px),
+      radial-gradient(150% 26% at 50% 0%, #FFFFFF 0%, var(--bg) 55%, var(--bg-2) 100%);
+    background-size:26px 26px, 100% 100%;
+    background-repeat:repeat, no-repeat;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh; min-height:100svh; overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+    line-height:1.65;
+  }
+  .ill{ display:block; }
+  .wrap{ width:100%; max-width:600px; margin:0 auto; padding:0 22px calc(env(safe-area-inset-bottom) + 40px); position:relative; z-index:1; }
+
+  /* ---------- top bar ---------- */
+  .topbar{ display:flex; align-items:center; justify-content:space-between; padding:18px 0 0; }
+  .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--sea); text-decoration:none; }
+  .back svg{ width:16px; height:16px; }
+  .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink); }
+
+  /* ---------- header ---------- */
+  header{ text-align:center; padding:40px 0 8px; position:relative; }
+  .eyebrow{ font-size:12px; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+  header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(40px,12vw,58px); line-height:1.02; color:var(--ink); margin:10px 0 6px; }
+  header h1 .isle{ color:var(--sea); }
+  header .sub{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink-soft); }
+  .header-doodle{ position:absolute; opacity:.9; animation:float 8s ease-in-out infinite; }
+  .header-doodle.a{ top:6px; left:-6px; color:var(--olive,#36AEBE); }
+  .header-doodle.b{ top:24px; right:-4px; color:var(--gold); animation-delay:-3s; }
+  @keyframes float{ 50%{ transform:translateY(-9px) rotate(3deg);} }
+  .rule{ width:54px; height:1px; background:var(--gold); margin:26px auto 0; }
+
+  /* ---------- section ---------- */
+  .section{ margin-top:54px; opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .section.in{ opacity:1; transform:none; }
+  .sec-head{ display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .sec-ico{ flex:none; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--sea-pale); }
+  .sec-ico svg{ width:26px; height:26px; }
+  .sec-ico.coral{ background:#FFE2D8; color:var(--gold); }
+  .sec-ico.blue{ background:#D5E8F7; color:var(--sea); }
+  .sec-ico.green{ background:#D7F0E0; color:var(--green); }
+  .sec-ico.pink{ background:#FBE3EE; color:var(--pink); }
+  .sec-head h2{ font-family:var(--serif); font-weight:600; font-size:27px; line-height:1.1; color:var(--ink); }
+  .sec-head .em{ font-size:18px; }
+
+  p{ font-size:15.5px; color:var(--ink-soft); }
+  p b, .ink{ color:var(--ink); font-weight:500; }
+  .lead{ font-size:16px; margin-bottom:18px; }
+
+  /* ---------- cards ---------- */
+  .card{ background:var(--paper); border:1px solid #E4EEF0; border-radius:18px; padding:20px 20px; box-shadow:0 16px 34px -26px rgba(10,70,130,.5); }
+  .card + .card{ margin-top:14px; }
+  .card h3{ font-family:var(--serif); font-weight:600; font-size:21px; color:var(--ink); margin-bottom:4px; }
+  .card .muted{ font-size:14px; margin-top:10px; }
+
+  /* ---------- journey infographic ---------- */
+  .journey{ margin:6px 0 4px; }
+  .leg{ display:flex; align-items:center; gap:16px; }
+  .leg-ico{ flex:none; width:54px; height:54px; border-radius:50%; background:var(--paper); border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 22px -16px rgba(10,70,130,.6); }
+  .leg-ico svg{ width:28px; height:28px; }
+  .leg-text b{ display:block; font-family:var(--serif); font-size:19px; color:var(--ink); font-weight:600; }
+  .leg-text span{ font-size:14px; color:var(--ink-soft); }
+  .leg-line{ width:54px; display:flex; justify-content:center; }
+  .leg-line::before{ content:""; width:2px; height:30px; background:repeating-linear-gradient(var(--sea-light) 0 5px, transparent 5px 11px); }
+
+  /* ---------- ferry options ---------- */
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .opt{ background:var(--paper); border:1px solid #E4EEF0; border-radius:16px; padding:16px 14px; text-align:center; box-shadow:0 14px 30px -26px rgba(10,70,130,.5); }
+  .opt .em{ font-size:26px; }
+  .opt b{ display:block; font-family:var(--serif); font-size:18px; color:var(--ink); margin:6px 0 4px; }
+  .opt p{ font-size:13.5px; }
+
+  .btn{ display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-family:var(--sans); font-size:15px; font-weight:500; color:#fff; background:var(--gold); border:none; padding:13px 24px; border-radius:30px; text-decoration:none; box-shadow:0 12px 26px -10px rgba(255,118,83,.75); transition:transform .15s ease; }
+  .btn:active{ transform:scale(.98); }
+
+  /* ---------- callout ---------- */
+  .callout{ display:flex; gap:14px; align-items:flex-start; margin-top:20px; background:#FFF3EE; border:1px solid #FBD9CC; border-radius:16px; padding:16px 18px; }
+  .callout .c-ico{ flex:none; width:34px; height:34px; color:var(--gold); }
+  .callout p{ font-size:14.5px; color:#9a4a2e; }
+  .callout b{ color:var(--gold); }
+
+  /* ---------- timeline ---------- */
+  .timeline{ position:relative; margin:6px 0 0 8px; padding-left:26px; }
+  .timeline::before{ content:""; position:absolute; left:5px; top:8px; bottom:14px; width:2px; background:var(--sea-light); border-radius:2px; }
+  .tl{ position:relative; padding:0 0 22px; }
+  .tl::before{ content:""; position:absolute; left:-26px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--paper); border:2.5px solid var(--sea-light); }
+  .tl b{ display:block; font-family:var(--serif); font-size:19px; color:var(--ink); font-weight:600; }
+  .tl span{ font-size:14px; color:var(--ink-soft); }
+  .tl.big::before{ background:var(--gold); border-color:var(--gold); width:16px; height:16px; left:-28px; top:2px; box-shadow:0 0 0 4px #FFE2D8; }
+  .tl.big b{ color:var(--gold); font-size:22px; }
+
+  /* ---------- surprise venue ---------- */
+  .surprise{ text-align:center; background:linear-gradient(180deg,#FFFFFF, #FBF4FB); border-color:#F2DCEC; }
+  .surprise .big-em{ font-size:46px; line-height:1; }
+  .surprise h3{ font-size:25px; margin:8px 0 6px; }
+  .tag{ display:inline-block; margin-top:14px; font-size:13px; letter-spacing:.04em; color:var(--sea); background:var(--sea-pale); padding:6px 14px; border-radius:20px; }
+
+  /* ---------- footer ---------- */
+  footer{ text-align:center; margin-top:64px; padding-top:28px; border-top:1px solid var(--line); }
+  footer .fnames{ font-family:var(--serif); font-weight:600; font-size:24px; color:var(--ink); }
+  footer .fwhen{ font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-top:6px; }
+  footer .back{ margin-top:18px; }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; }
+    .section{ opacity:1 !important; transform:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true"><defs>
+  <symbol id="i-plane" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5 L2.5 9.7 l8 2.8 2.8 8 z"/><path d="M21.5 2.5 L10.5 12.5"/></g></symbol>
+  <symbol id="i-ferry" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 h16 l-1.6 4 H5.6 z"/><path d="M6.6 15 v-4 h7 l2 4"/><path d="M9 11 V8.6 h2.6 V11"/><path d="M2.5 20.6 c1.6 .9 2.7 -.8 4.3 0 c1.6 .9 2.7 -.8 4.3 0 c1.6 .9 2.7 -.8 4.3 0 c1.2 .6 2.1 -.2 3.1 -.4"/></g></symbol>
+  <symbol id="i-church" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 v3.6 M10.4 3.4 h3.2"/><path d="M8 11 a4 4 0 0 1 8 0"/><path d="M6.4 11 h11.2 v9.6 H6.4 z"/><path d="M10.4 20.6 v-4.2 a1.6 1.6 0 0 1 3.2 0 v4.2"/></g></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 v-6 a2 2 0 0 1 2 -2 h14 a2 2 0 0 1 2 2 v6"/><path d="M3 16 h18"/><path d="M3.5 19 v1.6 M20.5 19 v1.6"/><path d="M7 11 V9.6 a1 1 0 0 1 1 -1 h8 a1 1 0 0 1 1 1 V11"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4 V12 l3.2 2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5 C12 21.5 5.5 15 5.5 9.5 a6.5 6.5 0 0 1 13 0 C18.5 15 12 21.5 12 21.5 Z"/><circle cx="12" cy="9.5" r="2.3"/></g></symbol>
+  <symbol id="i-sailboat" viewBox="0 0 56 56"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M11,40 H45 L39,47 H17 Z"/><path d="M28,40 V9"/><path d="M28,13 L43,38 H28 Z"/><path d="M28,16 L16,38 H28"/><path d="M5,50 C11,46 15,53 21,49 C27,45 31,52 37,49 C43,45 47,52 51,49"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="9"/><path d="M24,5 V11"/><path d="M24,37 V43"/><path d="M5,24 H11"/><path d="M37,24 H43"/><path d="M10.5,10.5 L14.5,14.5"/><path d="M33.5,33.5 L37.5,37.5"/><path d="M37.5,10.5 L33.5,14.5"/><path d="M14.5,33.5 L10.5,37.5"/></g></symbol>
+  <symbol id="i-olive" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7,53 C22,43 37,28 57,11"/><ellipse cx="20" cy="41" rx="7.5" ry="3" transform="rotate(-42 20 41)"/><ellipse cx="30" cy="31" rx="7.5" ry="3" transform="rotate(-42 30 31)"/><ellipse cx="40" cy="22" rx="7.5" ry="3" transform="rotate(-42 40 22)"/><ellipse cx="49" cy="14" rx="7" ry="2.8" transform="rotate(-42 49 14)"/><circle cx="25" cy="46" r="3"/><circle cx="36" cy="37" r="3"/></g></symbol>
+  <symbol id="i-wave" viewBox="0 0 80 44"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4,26 C12,13 23,13 31,26 C39,39 50,39 58,26 C63,17 71,15 77,21"/><path d="M77,21 c4,1 5,7 0,9 c-4,1 -6,-3 -3,-6"/><path d="M9,36 C17,28 28,28 36,35"/><path d="M46,37 C52,32 60,32 66,36"/></g></symbol>
+</defs></svg>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Invitation</a>
+    <span class="names">Sandro &amp; Kopi</span>
+  </div>
+
+  <header>
+    <span class="header-doodle a"><svg class="ill" width="42" height="42"><use href="#i-olive"/></svg></span>
+    <span class="header-doodle b"><svg class="ill" width="34" height="34"><use href="#i-sun"/></svg></span>
+    <div class="eyebrow">Wedding Guest Guide</div>
+    <h1>Getting to<br><span class="isle">Syros</span> 🇬🇷</h1>
+    <p class="sub">everything you need to join us on the island</p>
+    <div class="rule"></div>
+  </header>
+
+  <!-- HOW TO GET THERE -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-plane"/></svg></span>
+      <h2>How to get there</h2>
+    </div>
+    <p class="lead">Two hops from Georgia: <b class="ink">fly to Athens</b>, then <b class="ink">catch a ferry</b> across the Aegean to Syros.</p>
+
+    <div class="journey">
+      <div class="leg">
+        <span class="leg-ico" style="color:var(--gold)"><svg viewBox="0 0 24 24"><use href="#i-plane"/></svg></span>
+        <span class="leg-text"><b>Fly to Athens</b><span>from Kutaisi or Tbilisi ✈️</span></span>
+      </div>
+      <div class="leg-line"></div>
+      <div class="leg">
+        <span class="leg-ico" style="color:var(--sea)"><svg viewBox="0 0 24 24"><use href="#i-ferry"/></svg></span>
+        <span class="leg-text"><b>Ferry to Syros</b><span>from the Athens port ⛴️</span></span>
+      </div>
+      <div class="leg-line"></div>
+      <div class="leg">
+        <span class="leg-ico" style="color:var(--green)"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
+        <span class="leg-text"><b>Arrive in Syros</b><span>welcome to the island! 🎉</span></span>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="opt"><div class="em">⚡</div><b>Fast ferry</b><p>Shorter trip, usually a bit pricier.</p></div>
+      <div class="opt"><div class="em">🌊</div><b>Regular ferry</b><p>Longer but relaxed — often cheaper.</p></div>
+    </div>
+
+    <a class="btn" href="https://www.ferryhopper.com" target="_blank" rel="noopener">Book ferry tickets
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <div class="callout">
+      <span class="c-ico"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
+      <p><b>Heads up:</b> the ferry port isn't in central Athens. Allow at least <b>1 hour</b> (often more) to reach it from the airport or city — so don't book the ferry too close to your flight's arrival.</p>
+    </div>
+  </section>
+
+  <!-- WHEN TO ARRIVE -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-clock"/></svg></span>
+      <h2>When to arrive <span class="em">📅</span></h2>
+    </div>
+    <p class="lead">The wedding is on <b class="ink">15th September</b>. Come early so we can enjoy Syros together before the big day.</p>
+
+    <div class="timeline">
+      <div class="tl"><b>13 Sep · evening</b><span>arrive on the island (recommended)</span></div>
+      <div class="tl"><b>14 Sep · morning</b><span>…or by this morning at the latest</span></div>
+      <div class="tl big"><b>15 Sep · Wedding day ♥</b><span>the celebration in Syros</span></div>
+      <div class="tl"><b>16 Sep</b><span>stay at least until here before heading home</span></div>
+    </div>
+    <p class="muted" style="font-size:14px;margin-top:4px">More details to follow — but the idea is simple: arrive early, leave late, and soak up the island with us.</p>
+  </section>
+
+  <!-- WHERE TO STAY -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="sec-ico green"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-bed"/></svg></span>
+      <h2>Where to stay <span class="em">🏨</span></h2>
+    </div>
+    <div class="card">
+      <h3>Base yourself in Ermoupoli</h3>
+      <p>The main town of Syros — the most convenient spot, and the best base for spending time together before and after the wedding. A <b class="ink">hotel or Airbnb</b> here both work perfectly.</p>
+      <p class="muted">Staying in another village is totally fine too — just keep in mind you'll likely need a <b class="ink">taxi, car, or scooter</b> 🚕 🛵 to get around.</p>
+    </div>
+  </section>
+
+  <!-- CHURCH -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="sec-ico pink"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-church"/></svg></span>
+      <h2>The ceremony ⛪</h2>
+    </div>
+    <div class="card">
+      <h3>Saint Nicholas Church</h3>
+      <p>The wedding ceremony will take place here, in the heart of <b class="ink">Ermoupoli, Syros</b>.</p>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-sailboat"/></svg></span>
+      <h2>The venue</h2>
+    </div>
+    <div class="card surprise">
+      <div class="big-em">🤫</div>
+      <h3>It's still a surprise</h3>
+      <p>We're keeping the celebration spot under wraps for now… <b class="ink">Transport from Ermoupoli to the venue will be provided</b>, so you won't need to worry about getting there.</p>
+      <span class="tag">More details coming soon ✨</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fnames">Sandro &amp; Kopi</div>
+    <div class="fwhen">Syros, Greece · 15 September 2026</div>
+    <a class="back" href="/" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Back to the invitation</a>
+  </footer>
+</div>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.section').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
