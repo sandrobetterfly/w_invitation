@@ -115,6 +115,9 @@
   .hero-names{ font-family:var(--serif); font-weight:500; font-size:clamp(40px,12vw,58px); line-height:1; color:var(--ink); margin-top:6px; }
   .hero-names .amp{ font-style:italic; color:var(--gold); font-size:.7em; margin:0 .12em; }
   .hero-when{ margin-top:14px; font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); }
+  .guide-link{ display:inline-flex; align-items:center; gap:7px; margin-top:22px; font-family:var(--sans); font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--sea); text-decoration:none; background:rgba(255,255,255,.5); border:1px solid var(--sea-light); padding:10px 20px; border-radius:30px; -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px); transition:background .2s ease, transform .15s ease; }
+  .guide-link svg{ width:14px; height:14px; }
+  .guide-link:active{ transform:scale(.98); }
 
   .scroll-hint{
     position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
@@ -409,6 +412,9 @@
     <div class="eyebrow lg reveal" style="--d:.3s">Save the Date</div>
     <div class="rule reveal" style="--d:.36s"></div>
     <p class="hero-when reveal" style="--d:.45s">Syros, Greece · 15.09.2026</p>
+    <a class="guide-link reveal" href="/details" style="--d:.55s">Travel &amp; guest guide
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
   </div>
   <div class="scroll-hint reveal" style="--d:.8s"><span>Scroll</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
 </section>

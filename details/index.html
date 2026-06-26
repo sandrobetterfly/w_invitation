@@ -82,6 +82,9 @@
   .card + .card{ margin-top:14px; }
   .card h3{ font-family:var(--serif); font-weight:600; font-size:21px; color:var(--ink); margin-bottom:4px; }
   .card .muted{ font-size:14px; margin-top:10px; }
+  .map-link{ display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-size:14px; font-weight:500; color:var(--green); text-decoration:none; }
+  .map-link svg:first-child{ flex:none; }
+  .map-link:active{ opacity:.7; }
 
   /* ---------- journey infographic ---------- */
   .journey{ margin:6px 0 4px; }
@@ -199,7 +202,7 @@
       <div class="opt"><div class="em">🌊</div><b>Regular ferry</b><p>Longer but relaxed — often cheaper.</p></div>
     </div>
 
-    <a class="btn" href="https://www.ferryhopper.com" target="_blank" rel="noopener">Book ferry tickets
+    <a class="btn" href="https://www.ferryscanner.com/en/ferry?dep=ATH&tripType=oneWay&arr=JSY" target="_blank" rel="noopener">Book ferry tickets
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
     </a>
 
@@ -248,6 +251,9 @@
     <div class="card">
       <h3>Saint Nicholas Church</h3>
       <p>The wedding ceremony will take place here, in the heart of <b class="ink">Ermoupoli, Syros</b>.</p>
+      <a class="map-link" href="https://maps.app.goo.gl/ki1qMkc5tC3Rw5Bg8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
     </div>
   </section>
 
