@@ -11,3 +11,10 @@ Cover Image kopi and sandro .JPG
 
 # Design reference sticker sheet (not part of the invitation)
 illustrations.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
