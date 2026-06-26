@@ -51,7 +51,7 @@
   /* ---------- header ---------- */
   header{ text-align:center; padding:40px 0 8px; position:relative; }
   .eyebrow{ font-size:12px; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); font-weight:500; }
-  header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(40px,12vw,58px); line-height:1.02; color:var(--ink); margin:10px 0 6px; }
+  header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(52px,15vw,78px); line-height:.95; color:var(--ink); margin:10px 0 10px; }
   header h1 .isle{ color:var(--sea); }
   header .sub{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink-soft); }
   .header-doodle{ position:absolute; opacity:.9; animation:float 8s ease-in-out infinite; }
@@ -109,7 +109,7 @@
   /* ---------- callout ---------- */
   .callout{ display:flex; gap:14px; align-items:flex-start; margin-top:20px; background:#FFF3EE; border:1px solid #FBD9CC; border-radius:16px; padding:16px 18px; }
   .callout .c-ico{ flex:none; width:34px; height:34px; color:var(--gold); }
-  .callout p{ font-size:14.5px; color:#9a4a2e; }
+  .callout p{ font-size:13.5px; font-style:italic; color:#9a4a2e; }
   .callout b{ color:var(--gold); }
 
   /* ---------- timeline ---------- */
@@ -128,11 +128,36 @@
   .surprise h3{ font-size:25px; margin:8px 0 6px; }
   .tag{ display:inline-block; margin-top:14px; font-size:13px; letter-spacing:.04em; color:var(--sea); background:var(--sea-pale); padding:6px 14px; border-radius:20px; }
 
+  /* ---------- embedded Ermoupoli map ---------- */
+  .map-card{ padding:0; overflow:hidden; border-color:#D8EBEE; }
+  .map-frame{ position:relative; min-height:390px; background:var(--sea-pale); }
+  .map-frame iframe{ display:block; width:100%; height:390px; border:0; filter:saturate(.9) contrast(.98); }
+  .pin-link{ position:absolute; display:flex; align-items:center; gap:9px; max-width:calc(100% - 24px); padding:10px 12px; border-radius:16px; background:rgba(255,255,255,.95); color:var(--ink); text-decoration:none; border:1px solid #E3EEF0; box-shadow:0 14px 28px -20px rgba(10,70,130,.8); }
+  .pin-link.church{ left:12px; top:14px; }
+  .pin-link.hotel{ right:12px; bottom:14px; }
+  .pin-badge{ flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; color:#fff; box-shadow:0 8px 18px -12px rgba(10,70,130,.8); }
+  .pin-badge.church{ background:var(--pink); }
+  .pin-badge.hotel{ background:var(--gold); }
+  .pin-badge svg{ width:19px; height:19px; }
+  .pin-copy{ min-width:0; }
+  .pin-copy b{ display:block; font-family:var(--serif); font-size:16px; line-height:1.18; color:var(--ink); font-weight:600; }
+  .pin-copy span{ display:block; margin-top:3px; font-size:12.5px; line-height:1.35; color:var(--ink-soft); }
+
   /* ---------- footer ---------- */
   footer{ text-align:center; margin-top:64px; padding-top:28px; border-top:1px solid var(--line); }
   footer .fnames{ font-family:var(--serif); font-weight:600; font-size:24px; color:var(--ink); }
   footer .fwhen{ font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-top:6px; }
   footer .back{ margin-top:18px; }
+
+  @media (max-width:420px){
+    .topbar .names{ font-size:16px; }
+    .map-frame, .map-frame iframe{ height:360px; min-height:360px; }
+    .pin-link{ padding:9px 10px; }
+    .pin-link.church{ left:10px; top:10px; right:28px; }
+    .pin-link.hotel{ left:28px; right:10px; bottom:10px; }
+    .pin-copy b{ font-size:14px; }
+    .pin-copy span{ font-size:11.5px; }
+  }
 
   @media (prefers-reduced-motion:reduce){
     *{ animation:none !important; }
@@ -166,9 +191,9 @@
   <header>
     <span class="header-doodle a"><svg class="ill" width="42" height="42"><use href="#i-olive"/></svg></span>
     <span class="header-doodle b"><svg class="ill" width="34" height="34"><use href="#i-sun"/></svg></span>
-    <div class="eyebrow">Wedding Guest Guide</div>
-    <h1>Getting to<br><span class="isle">Syros</span> 🇬🇷</h1>
-    <p class="sub">everything you need to join us on the island</p>
+    <div class="eyebrow">Syros, Greece · 15 September 2026</div>
+    <h1>Wedding<br>Guest Guide</h1>
+    <p class="sub">everything you need to know</p>
     <div class="rule"></div>
   </header>
 
@@ -178,7 +203,7 @@
       <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-plane"/></svg></span>
       <h2>How to get there</h2>
     </div>
-    <p class="lead">Two hops from Georgia: <b class="ink">fly to Athens</b>, then <b class="ink">catch a ferry</b> across the Aegean to Syros.</p>
+    <p class="lead">Two hops: <b class="ink">fly to Athens</b>, then <b class="ink">catch a ferry</b> across the Aegean to Syros.</p>
 
     <div class="journey">
       <div class="leg">
@@ -224,7 +249,7 @@
       <div class="tl"><b>13 Sep · evening</b><span>arrive on the island (recommended)</span></div>
       <div class="tl"><b>14 Sep · morning</b><span>…or by this morning at the latest</span></div>
       <div class="tl big"><b>15 Sep · Wedding day ♥</b><span>the celebration in Syros</span></div>
-      <div class="tl"><b>16 Sep</b><span>stay at least until here before heading home</span></div>
+      <div class="tl"><b>16 Sep</b><span>stay at least until late evening on the island</span></div>
     </div>
     <p class="muted" style="font-size:14px;margin-top:4px">More details to follow — but the idea is simple: arrive early, leave late, and soak up the island with us.</p>
   </section>
@@ -237,8 +262,39 @@
     </div>
     <div class="card">
       <h3>Base yourself in Ermoupoli</h3>
-      <p>The main town of Syros — the most convenient spot, and the best base for spending time together before and after the wedding. A <b class="ink">hotel or Airbnb</b> here both work perfectly.</p>
+      <p>The main town of Syros — the most convenient spot, and the best base for spending time together before and after the wedding. A <b class="ink">hotel or Airbnb</b> here both work perfectly. We are staying at <b class="ink">Apollonion Palace Hotel</b>.</p>
       <p class="muted">Staying in another village is totally fine too — just keep in mind you'll likely need a <b class="ink">taxi, car, or scooter</b> 🚕 🛵 to get around.</p>
+    </div>
+  </section>
+
+  <!-- ERMOUPOLI MAP -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-pin"/></svg></span>
+      <h2>Ermoupoli map</h2>
+    </div>
+    <div class="card map-card" aria-label="Embedded Google Map for the wedding and hotel locations">
+      <div class="map-frame">
+        <iframe
+          src="https://maps.google.com/maps?saddr=Saint%20Nicholas%20Church%20Ermoupoli%20Syros%20Greece&amp;daddr=Apollonion%20Palace%20Hotel%20Ermoupoli%20Syros%20Greece&amp;t=&amp;z=16&amp;ie=UTF8&amp;output=embed"
+          title="Ermoupoli wedding map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a class="pin-link church" href="https://maps.app.goo.gl/ki1qMkc5tC3Rw5Bg8" target="_blank" rel="noopener">
+          <span class="pin-badge church"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <span class="pin-copy">
+            <b>Church of Saint Nicholas</b>
+            <span>Place where we will get married.</span>
+          </span>
+        </a>
+        <a class="pin-link hotel" href="https://www.google.com/maps/search/?api=1&amp;query=Apollonion%20Palace%20Hotel%20Ermoupoli%20Syros%20Greece" target="_blank" rel="noopener">
+          <span class="pin-badge hotel"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <span class="pin-copy">
+            <b>Apollonion Hotel</b>
+            <span>Place we are staying.</span>
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 
