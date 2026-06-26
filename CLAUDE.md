@@ -61,9 +61,10 @@ wedding web invitation/            ← repo root
 `.claude/`, `.DS_Store`.
 
 ### Page anatomy of `index.html`
-- `<head>`: meta + OpenGraph (absolute `og:image` = **`og-image.jpg`**, a 1200×674
-  JPEG of the Syros photo — JPEG not WebP so WhatsApp/iMessage render the preview;
-  og:title "Save the Date" + the "find the island…" description), favicon (inline SVG
+- `<head>`: meta + OpenGraph. **Per-page share images:** home `/` uses `cover.jpg`
+  (couple photo, 800×1200); `/details` uses `og-image.jpg` (1200×674 JPEG of the
+  Syros photo). Both are JPEG (not WebP) so WhatsApp/iMessage render the preview.
+  Home og:title = "Save the Date" + the "find the island…" description. Favicon (inline SVG
   heart), an early `<script>` setting `history.scrollRestoration = 'manual'`.
 - `<style>`: design tokens + all component CSS.
 - An inline hidden `<svg><defs>` **icon sprite** (olive, amphora, column, sailboat,
