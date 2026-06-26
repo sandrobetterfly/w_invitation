@@ -49,19 +49,26 @@
   .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink); }
 
   /* ---------- header ---------- */
-  header{ text-align:center; padding:40px 0 8px; position:relative; }
+  header{ text-align:center; padding:30px 0 6px; position:relative; }
   .eyebrow{ font-size:12px; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); font-weight:500; }
-  header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(52px,15vw,78px); line-height:.95; color:var(--ink); margin:10px 0 10px; }
+  header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(48px,14vw,74px); line-height:.95; color:var(--ink); margin:10px 0 8px; }
   header h1 .isle{ color:var(--sea); }
   header .sub{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink-soft); }
   .header-doodle{ position:absolute; opacity:.9; animation:float 8s ease-in-out infinite; }
   .header-doodle.a{ top:6px; left:-6px; color:var(--olive,#36AEBE); }
   .header-doodle.b{ top:24px; right:-4px; color:var(--gold); animation-delay:-3s; }
   @keyframes float{ 50%{ transform:translateY(-9px) rotate(3deg);} }
-  .rule{ width:54px; height:1px; background:var(--gold); margin:26px auto 0; }
+  .rule{ width:54px; height:1px; background:var(--gold); margin:22px auto 0; }
+
+  /* ---------- quick links ---------- */
+  .quick-links{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:28px 0 0; }
+  .quick-link{ display:flex; align-items:center; justify-content:center; gap:7px; min-height:42px; padding:10px 12px; border-radius:24px; background:rgba(255,255,255,.82); border:1px solid #E1EEF0; color:var(--sea); font-size:13px; font-weight:500; text-decoration:none; box-shadow:0 12px 26px -24px rgba(10,70,130,.75); }
+  .quick-link svg{ width:16px; height:16px; flex:none; }
+  .quick-link:active{ transform:scale(.98); }
 
   /* ---------- section ---------- */
   .section{ margin-top:54px; opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .section[id]{ scroll-margin-top:18px; }
   .section.in{ opacity:1; transform:none; }
   .sec-head{ display:flex; align-items:center; gap:12px; margin-bottom:20px; }
   .sec-ico{ flex:none; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--sea-pale); }
@@ -130,8 +137,8 @@
 
   /* ---------- embedded Ermoupoli map ---------- */
   .map-card{ padding:0; overflow:hidden; border-color:#D8EBEE; }
-  .map-frame{ position:relative; min-height:390px; background:var(--sea-pale); }
-  .map-frame iframe{ display:block; width:100%; height:390px; border:0; filter:saturate(.9) contrast(.98); }
+  .map-frame{ position:relative; min-height:310px; background:var(--sea-pale); }
+  .map-frame iframe{ display:block; width:100%; height:310px; border:0; filter:saturate(.9) contrast(.98); }
   .pin-link{ position:absolute; display:flex; align-items:center; gap:9px; max-width:calc(100% - 24px); padding:10px 12px; border-radius:16px; background:rgba(255,255,255,.95); color:var(--ink); text-decoration:none; border:1px solid #E3EEF0; box-shadow:0 14px 28px -20px rgba(10,70,130,.8); }
   .pin-link.church{ left:12px; top:14px; }
   .pin-link.hotel{ right:12px; bottom:14px; }
@@ -151,7 +158,9 @@
 
   @media (max-width:420px){
     .topbar .names{ font-size:16px; }
-    .map-frame, .map-frame iframe{ height:360px; min-height:360px; }
+    .quick-links{ margin-top:24px; }
+    .quick-link{ font-size:12.5px; padding:9px 10px; }
+    .map-frame, .map-frame iframe{ height:290px; min-height:290px; }
     .pin-link{ padding:9px 10px; }
     .pin-link.church{ left:10px; top:10px; right:28px; }
     .pin-link.hotel{ left:28px; right:10px; bottom:10px; }
@@ -197,8 +206,15 @@
     <div class="rule"></div>
   </header>
 
+  <nav class="quick-links" aria-label="Guest guide quick links">
+    <a class="quick-link" href="#ferries"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ferry"/></svg>Ferries</a>
+    <a class="quick-link" href="#church"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-church"/></svg>Church</a>
+    <a class="quick-link" href="#hotel"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bed"/></svg>Hotel</a>
+    <a class="quick-link" href="#timeline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>Timeline</a>
+  </nav>
+
   <!-- HOW TO GET THERE -->
-  <section class="section">
+  <section class="section" id="ferries">
     <div class="sec-head">
       <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-plane"/></svg></span>
       <h2>How to get there</h2>
@@ -233,12 +249,12 @@
 
     <div class="callout">
       <span class="c-ico"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
-      <p><b>Heads up:</b> the ferry port isn't in central Athens. Allow at least <b>1 hour</b> (often more) to reach it from the airport or city — so don't book the ferry too close to your flight's arrival.</p>
+      <p><b>Heads up:</b> the ferry port isn't in central Athens. Athens airport to Piraeus port usually takes <b>45–75 minutes</b> by taxi, and longer by public transport. Allow at least <b>1 hour</b> (often more) to reach it from the airport or city — so don't book the ferry too close to your flight's arrival.</p>
     </div>
   </section>
 
   <!-- WHEN TO ARRIVE -->
-  <section class="section">
+  <section class="section" id="timeline">
     <div class="sec-head">
       <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-clock"/></svg></span>
       <h2>When to arrive <span class="em">📅</span></h2>
@@ -255,7 +271,7 @@
   </section>
 
   <!-- WHERE TO STAY -->
-  <section class="section">
+  <section class="section" id="hotel">
     <div class="sec-head">
       <span class="sec-ico green"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-bed"/></svg></span>
       <h2>Where to stay <span class="em">🏨</span></h2>
@@ -263,12 +279,30 @@
     <div class="card">
       <h3>Base yourself in Ermoupoli</h3>
       <p>The main town of Syros — the most convenient spot, and the best base for spending time together before and after the wedding. A <b class="ink">hotel or Airbnb</b> here both work perfectly. We are staying at <b class="ink">Apollonion Palace Hotel</b>.</p>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Apollonion%20Palace%20Hotel%20Ermoupoli%20Syros%20Greece" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open Apollonion Palace in Google Maps
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
       <p class="muted">Staying in another village is totally fine too — just keep in mind you'll likely need a <b class="ink">taxi, car, or scooter</b> 🚕 🛵 to get around.</p>
     </div>
   </section>
 
+  <!-- CHURCH -->
+  <section class="section" id="church">
+    <div class="sec-head">
+      <span class="sec-ico pink"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-church"/></svg></span>
+      <h2>The ceremony ⛪</h2>
+    </div>
+    <div class="card">
+      <h3>Saint Nicholas Church</h3>
+      <p>The wedding ceremony will take place here, in the heart of <b class="ink">Ermoupoli, Syros</b>.</p>
+      <a class="map-link" href="https://maps.app.goo.gl/ki1qMkc5tC3Rw5Bg8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </section>
+
   <!-- ERMOUPOLI MAP -->
-  <section class="section">
+  <section class="section" id="map">
     <div class="sec-head">
       <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-pin"/></svg></span>
       <h2>Ermoupoli map</h2>
@@ -298,21 +332,6 @@
     </div>
   </section>
 
-  <!-- CHURCH -->
-  <section class="section">
-    <div class="sec-head">
-      <span class="sec-ico pink"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-church"/></svg></span>
-      <h2>The ceremony ⛪</h2>
-    </div>
-    <div class="card">
-      <h3>Saint Nicholas Church</h3>
-      <p>The wedding ceremony will take place here, in the heart of <b class="ink">Ermoupoli, Syros</b>.</p>
-      <a class="map-link" href="https://maps.app.goo.gl/ki1qMkc5tC3Rw5Bg8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
-    </div>
-  </section>
-
   <!-- VENUE -->
   <section class="section">
     <div class="sec-head">
@@ -335,6 +354,16 @@
 </div>
 
 <script>
+  document.querySelectorAll('.quick-link[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if(!target) return;
+      event.preventDefault();
+      history.pushState(null, '', link.getAttribute('href'));
+      target.scrollIntoView({ block:'start' });
+    });
+  });
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
