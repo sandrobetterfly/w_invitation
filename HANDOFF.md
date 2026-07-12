@@ -1,6 +1,8 @@
 # HANDOFF — Wedding Invitation (Sandro & Kopi)
 
-> **Session snapshot · 2026-06-27 · clean working tree at commit `c3e5f0e`.**
+> **Session snapshot · 2026-06-27 · baseline commit `57ddf48` (countdown removed).**
+> *(One in-progress tweak not yet committed: `/details` top-bar text switched from
+> coral to white for contrast on the blue bar.)*
 > This is a point-in-time handover. The living, detailed reference is
 > [`CLAUDE.md`](CLAUDE.md) — read it for full architecture, design tokens, and
 > command recipes. This file = "where things stand right now + what to do next."
