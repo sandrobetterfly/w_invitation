@@ -111,7 +111,6 @@ blue text) · `--sea:#075BB4` · `--sea-light:#6FCAD6` (turquoise) · `--sea-pal
 - "SEPTEMBER 15TH" header, itinerary line, **looping autoplay video** (plays WITH
   sound after the first user tap — the video is "primed" on first gesture so iOS
   allows un-muted playback), tap-to-(un)mute button.
-- **Love-timer countdown** to the RSVP deadline (`GO_LIVE + 7 days`).
 - **RSVP popup**: first name, last name, "Who sent you?" (Kopi/Sandro). Submits to
   the Apps Script endpoint. **Keyboard-safe** (visualViewport repositioning).
 - **One RSVP per device:** after sending, `localStorage` flag → button becomes
@@ -145,15 +144,16 @@ blue text) · `--sea:#075BB4` · `--sea-light:#6FCAD6` (turquoise) · `--sea-pal
 - RSVP → Google Sheet endpoint is **live and connected**.
 - Endpoint stress-tested across **50 device User-Agents** (49/50; 1 transient retry-OK).
 
+> **Note:** the screen-3 countdown ("love timer") was **removed** on 2026-06-27,
+> along with the `GO_LIVE` / `RSVP_DEADLINE` config constants that drove it. RSVP has
+> no deadline now — the "Tell us you're coming" button is open-ended.
+
 ### ⚠️ Needs attention / config (not blocking, but do before final send-out)
-1. **`GO_LIVE` constant** (CONFIG block, top of `index.html` `<script>`) drives the
-   countdown start. Currently `2026-06-22T18:00:00` → deadline **29 June 2026**.
-   Update to the real send date if it changes.
-2. **Apps Script "Sent by" column:** the front-end sends `sender`, but the *deployed*
+1. **Apps Script "Sent by" column:** the front-end sends `sender`, but the *deployed*
    Apps Script must include it. Updated code is in `rsvp-apps-script.gs`. If the live
    "Sent by" column isn't populating, the user must paste the new code → Deploy →
    **Manage deployments → edit → New version** (keeps the same `/exec` URL).
-3. **Delete test rows** in the Google Sheet (50+ rows named `Test 01…50` from the
+2. **Delete test rows** in the Google Sheet (50+ rows named `Test 01…50` from the
    device test, plus older `TEST`/`Test Guest` rows).
 
 ### ❌ Blocked / broken
@@ -178,9 +178,8 @@ blue text) · `--sea:#075BB4` · `--sea-light:#6FCAD6` (turquoise) · `--sea-pal
 
 1. **Pre-launch sheet hygiene** — delete the test RSVP rows from the Google Sheet.
 2. **Verify the "Sent by" column** populates; if not, redeploy `rsvp-apps-script.gs`
-   as a new version (see §3.2).
-3. **Set `GO_LIVE`** to the actual invite send date (if different from current).
-4. **Real-device QA** (the headless preview can't fully validate these):
+   as a new version (see §3.1).
+3. **Real-device QA** (the headless preview can't fully validate these):
    - Open the link 2–3 times / reload on iOS Safari + Android Chrome → must land on
      **screen 1** every time.
    - On a real iPhone: tap an island, scroll to screen 3 → video should play **with sound**.
@@ -207,8 +206,8 @@ blue text) · `--sea:#075BB4` · `--sea-light:#6FCAD6` (turquoise) · `--sea-pal
 - **Scroll model:** the document is the scroller; `scroll-snap-type` lives on
   `html.snap` and is enabled by JS only after `load`. Don't put `scroll-snap-type`
   back into the static CSS — it reintroduces the "opens on screen 2 after reload" bug.
-- **Config constants** live at the very top of the `index.html` `<script>`:
-  `GO_LIVE`, `RSVP_DEADLINE` (auto-derived), `RSVP_ENDPOINT` (the Apps Script `/exec`).
+- **Config constants** live near the top of the `index.html` `<script>`:
+  `RSVP_ENDPOINT` (the Apps Script `/exec` URL).
 - **Clean URLs:** `/details` is `details/index.html` (GitHub Pages serves dir indexes).
 - **macOS git gotcha:** `core.ignorecase` is ON. Do NOT use extension patterns like
   `*.JPG` in `.gitignore` — they also match `cover.jpg`. Ignore originals by exact name.

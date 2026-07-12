@@ -232,19 +232,6 @@
   .orbit.boat{ bottom:-3%; right:0; color:var(--sea); animation-delay:-4.5s; }
   @keyframes float{ 50%{ transform:translateY(-12px) rotate(2deg);} }
 
-  .countdown{ width:100%; max-width:330px; margin-top:10px; }
-  .countdown h2{ font-family:var(--sans); font-weight:400; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:14px; }
-  .clock{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-  .cell{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:12px 4px 9px; box-shadow:0 10px 24px -20px rgba(22,52,74,.7); }
-  .cell .num{ font-family:var(--serif); font-weight:600; font-size:30px; line-height:1; color:var(--sea); font-variant-numeric:tabular-nums; display:inline-block; }
-  .cell .num.tick{ animation:tk .5s ease; }
-  @keyframes tk{ 0%{ transform:translateY(-4px); opacity:.3;} 100%{ transform:none; opacity:1;} }
-  .cell .lbl{ margin-top:7px; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); }
-  .deadline-note{ margin-top:14px; font-size:11px; letter-spacing:.06em; color:var(--ink-soft); }
-  .countdown.ended .clock{ display:none; }
-  .ended-msg{ display:none; }
-  .countdown.ended .ended-msg{ display:block; font-family:var(--serif); font-size:20px; font-style:italic; color:var(--ink); }
-
   /* ---------- dot nav ---------- */
   .nav{ position:fixed; right:16px; top:50%; transform:translateY(-50%); z-index:20; display:flex; flex-direction:column; gap:14px; }
   .nav button{ position:relative; width:9px; height:9px; padding:0; border-radius:50%; border:1.5px solid var(--sea-light); background:transparent; cursor:pointer; transition:all .3s ease; }
@@ -261,16 +248,6 @@
   .photo-label.l2{ bottom:14%; left:2px; color:var(--gold); animation:floatL2 5.5s ease-in-out infinite; }
   @keyframes floatL1{ 0%,100%{ transform:translateY(0) rotate(6deg); } 50%{ transform:translateY(-5px) rotate(3deg); } }
   @keyframes floatL2{ 0%,100%{ transform:translateY(0) rotate(-7deg); } 50%{ transform:translateY(-6px) rotate(-4deg); } }
-
-  /* ---------- countdown restyle (love timer) ---------- */
-  .countdown h2{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:18px; letter-spacing:0; text-transform:none; color:var(--ink-soft); margin-bottom:8px; }
-  .countdown .hb{ color:var(--gold); font-style:normal; }
-  .clock{ display:flex; justify-content:center; align-items:flex-start; gap:0; max-width:320px; margin:0 auto; }
-  .cell{ flex:1; max-width:80px; background:transparent; border:0; box-shadow:none; border-radius:0; padding:4px 0; position:relative; }
-  .cell:not(:last-child)::after{ content:':'; position:absolute; right:-2px; top:0; font-family:var(--serif); font-size:34px; line-height:1.1; color:var(--sea-light); }
-  .cell .num{ font-size:42px; color:var(--sea); }
-  .cell .lbl{ color:var(--gold); margin-top:9px; }
-  .deadline-note{ font-style:italic; }
 
   /* ---------- RSVP button + modal ---------- */
   .btn-rsvp{ margin-top:26px; font-family:var(--sans); font-size:15px; font-weight:500; color:#fff; background:var(--gold); border:none; padding:14px 26px; border-radius:30px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 12px 26px -10px rgba(255,118,83,.75); transition:transform .15s ease, box-shadow .2s ease; }
@@ -524,18 +501,6 @@
       </div>
     </div>
 
-    <section class="countdown reveal" style="--d:.45s" id="countdown" aria-live="polite">
-      <h2>Days until we need your yes <span class="hb">&#9829;</span></h2>
-      <div class="clock">
-        <div class="cell"><span class="num" id="d">0</span><div class="lbl">Days</div></div>
-        <div class="cell"><span class="num" id="h">0</span><div class="lbl">Hours</div></div>
-        <div class="cell"><span class="num" id="m">0</span><div class="lbl">Mins</div></div>
-        <div class="cell"><span class="num" id="s">0</span><div class="lbl">Secs</div></div>
-      </div>
-      <p class="ended-msg">The reply window has closed — but we'd still love to hear from you.</p>
-      <p class="deadline-note" id="deadline-note"></p>
-    </section>
-
     <button type="button" class="btn-rsvp reveal" id="openRsvp" style="--d:.55s">Tell us you're coming&#160;<svg class="ill" width="16" height="16"><use href="#i-sparkle"/></svg></button>
   </div>
 </section>
@@ -576,13 +541,6 @@
 <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true"></canvas>
 
 <script>
-  /* ============================================================
-     CONFIG — set GO_LIVE to the day you send the invite.
-     RSVP deadline auto-computes to 7 days later.
-     ============================================================ */
-  const GO_LIVE = new Date('2026-06-22T23:00:00');
-  const RSVP_DEADLINE = new Date(GO_LIVE.getTime() + 7 * 24 * 60 * 60 * 1000);
-
   /* Google Sheet sync: paste your Apps Script web-app URL here once the sheet is ready.
      Setup (later): in your Google Sheet → Extensions → Apps Script, paste a doPost that
      appends e.parameter.first / .last / .respondedAt to the sheet, Deploy as Web app
@@ -715,24 +673,6 @@
       }
     });
   });
-
-  /* deadline note */
-  document.getElementById('deadline-note').textContent =
-    'We’ll need your yes by ' + RSVP_DEADLINE.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) + '.';
-
-  /* countdown */
-  const els = { d:document.getElementById('d'), h:document.getElementById('h'), m:document.getElementById('m'), s:document.getElementById('s') };
-  const cd = document.getElementById('countdown'); const last = {};
-  const pad = n => String(n).padStart(2,'0');
-  function set(el,k,v){ if(last[k]===v) return; last[k]=v; el.textContent=pad(v); el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); }
-  function render(){
-    const diff = RSVP_DEADLINE - new Date();
-    if(diff<=0){ cd.classList.add('ended'); clearInterval(timer); return; }
-    const s=Math.floor(diff/1000);
-    set(els.d,'d',Math.floor(s/86400)); set(els.h,'h',Math.floor(s%86400/3600));
-    set(els.m,'m',Math.floor(s%3600/60)); set(els.s,'s',s%60);
-  }
-  render(); const timer=setInterval(render,1000);
 
   /* video — plays WITH SOUND when screen 3 scrolls into view.
      Browsers block audio without a prior user gesture, so we track the first
