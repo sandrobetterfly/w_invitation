@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Guest Guide · Sandro &amp; Kopi · Syros</title>
-<meta name="description" content="How to get to Syros, where to stay, and what to know for Sandro & Kopi's wedding on 15 September 2026." />
-<meta property="og:title" content="Sandro & Kopi — Guest Guide to Syros" />
-<meta property="og:description" content="Getting there, where to stay, the ceremony & more." />
+<title>The Wedding Day · Sandro &amp; Kopi · Syros</title>
+<meta name="description" content="The full schedule for Sandro & Kopi's wedding day in Syros — 15 September 2026. Ceremony at 14:30 at Saint Nicholas, then transport, dinner and dancing." />
+<meta property="og:title" content="Sandro & Kopi — The Wedding Day" />
+<meta property="og:description" content="Ceremony 14:30 · transport · dinner · dancing. Everything you need for 15 September." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://wedding.khasia.ge/details" />
 <meta property="og:image" content="https://wedding.khasia.ge/og-image.jpg" />
@@ -14,8 +14,8 @@
 <meta property="og:image:height" content="674" />
 <meta property="og:image:alt" content="Ermoupoli, Syros — Sandro & Kopi's wedding" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Sandro & Kopi — Guest Guide to Syros" />
-<meta name="twitter:description" content="Getting there, where to stay, the ceremony & more." />
+<meta name="twitter:title" content="Sandro & Kopi — The Wedding Day" />
+<meta name="twitter:description" content="Ceremony 14:30 · transport · dinner · dancing. Everything you need for 15 September." />
 <meta name="twitter:image" content="https://wedding.khasia.ge/og-image.jpg" />
 <meta name="theme-color" content="#E1EFEE" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S4 20 4 12a7 7 0 0 1 12-4 7 7 0 0 1 12 4c0 8-12 16-12 16z' fill='%23FF7653'/%3E%3C/svg%3E" />
@@ -53,7 +53,8 @@
   .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 22px 8px; background:#3B82F6; }
   .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--gold); text-decoration:none; }
   .back svg{ width:16px; height:16px; }
-  .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:var(--gold); }
+  .topbar .back{ color:#fff; }
+  .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:#fff; }
 
   /* ---------- header ---------- */
   header{ text-align:center; padding:30px 0 6px; position:relative; }
@@ -71,8 +72,26 @@
   @keyframes float{ 50%{ transform:translateY(-9px) rotate(3deg);} }
   .rule{ width:54px; height:1px; background:var(--gold); margin:22px auto 0; }
 
+  /* ---------- countdown ---------- */
+  .countdown{ position:relative; margin-top:26px; background:var(--paper); border:1px solid #E4EEF0; border-radius:22px; padding:20px 16px 17px; text-align:center; overflow:hidden; box-shadow:0 18px 38px -28px rgba(10,70,130,.55); }
+  .countdown::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--pink),var(--sea-light)); }
+  .cd-eyebrow{ font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+  .cd-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:15px 0 2px; }
+  .cd-unit{ background:var(--sea-pale); border-radius:14px; padding:11px 4px 9px; }
+  .cd-unit b{ display:block; font-family:var(--serif); font-weight:600; font-size:clamp(27px,8.5vw,36px); line-height:1; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .cd-unit span{ display:block; margin-top:5px; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-soft); }
+  .cd-live{ display:none; margin:16px 0 2px; }
+  .countdown.live .cd-grid{ display:none; }
+  .countdown.live .cd-live{ display:block; }
+  .cd-now{ display:inline-flex; align-items:center; gap:9px; font-family:var(--serif); font-weight:600; font-size:24px; line-height:1.2; color:var(--ink); }
+  .cd-dot{ flex:none; width:10px; height:10px; border-radius:50%; background:var(--gold); animation:pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse{ 50%{ transform:scale(.6); opacity:.45; } }
+  .cd-next{ display:block; margin-top:7px; font-size:14px; color:var(--ink-soft); }
+  .cd-foot{ font-size:13px; color:var(--ink-soft); margin-top:13px; padding-top:12px; border-top:1px solid #EAF3F4; }
+  .cd-foot b{ color:var(--ink); font-weight:500; }
+
   /* ---------- quick links ---------- */
-  .quick-links{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:28px 0 0; }
+  .quick-links{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:14px 0 0; }
   .quick-link{ display:flex; align-items:center; justify-content:center; gap:7px; min-height:42px; padding:10px 12px; border-radius:24px; background:rgba(255,255,255,.82); border:1px solid #E1EEF0; color:var(--sea); font-size:13px; font-weight:500; text-decoration:none; box-shadow:0 12px 26px -24px rgba(10,70,130,.75); }
   .quick-link svg{ width:16px; height:16px; flex:none; }
   .quick-link:active{ transform:scale(.98); }
@@ -104,22 +123,27 @@
   .map-link svg:first-child{ flex:none; }
   .map-link:active{ opacity:.7; }
 
-  /* ---------- journey infographic ---------- */
-  .journey{ margin:6px 0 4px; }
-  .leg{ display:flex; align-items:center; gap:16px; }
-  .leg-ico{ flex:none; width:54px; height:54px; border-radius:50%; background:var(--paper); border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 22px -16px rgba(10,70,130,.6); }
-  .leg-ico svg{ width:28px; height:28px; }
-  .leg-text b{ display:block; font-family:var(--serif); font-size:19px; color:var(--ink); font-weight:600; }
-  .leg-text span{ font-size:14px; color:var(--ink-soft); }
-  .leg-line{ width:54px; display:flex; justify-content:center; }
-  .leg-line::before{ content:""; width:2px; height:30px; background:repeating-linear-gradient(var(--sea-light) 0 5px, transparent 5px 11px); }
-
-  /* ---------- ferry options ---------- */
-  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
-  .opt{ background:var(--paper); border:1px solid #E4EEF0; border-radius:16px; padding:16px 14px; text-align:center; box-shadow:0 14px 30px -26px rgba(10,70,130,.5); }
-  .opt .em{ font-size:26px; }
-  .opt b{ display:block; font-family:var(--serif); font-size:18px; color:var(--ink); margin:6px 0 4px; }
-  .opt p{ font-size:13.5px; }
+  /* ---------- wedding-day schedule ---------- */
+  .day{ position:relative; margin-top:4px; padding-left:60px; }
+  .day::before{ content:""; position:absolute; left:23px; top:24px; bottom:30px; width:2px; background:repeating-linear-gradient(var(--sea-light) 0 6px, transparent 6px 12px); }
+  .ev{ position:relative; background:var(--paper); border:1px solid #E4EEF0; border-radius:18px; padding:14px 16px 15px; box-shadow:0 16px 34px -28px rgba(10,70,130,.5); transition:opacity .4s ease, box-shadow .4s ease; }
+  .ev + .ev{ margin-top:12px; }
+  .ev-ico{ position:absolute; left:-60px; top:10px; width:48px; height:48px; border-radius:50%; display:grid; place-items:center; background:var(--sea-pale); border:3px solid var(--bg); color:var(--sea); }
+  .ev-ico svg{ width:24px; height:24px; }
+  .ev-ico.coral{ background:#FFE2D8; color:var(--gold); }
+  .ev-ico.pink{ background:#FBE3EE; color:var(--pink); }
+  .ev-ico.green{ background:#D7F0E0; color:var(--green); }
+  .ev-when{ display:flex; align-items:center; gap:9px; }
+  .ev-time{ font-size:13.5px; font-weight:500; letter-spacing:.1em; color:var(--gold); font-variant-numeric:tabular-nums; }
+  .ev-pill{ display:none; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#fff; background:var(--gold); padding:3px 9px; border-radius:20px; }
+  .ev h3{ font-family:var(--serif); font-weight:600; font-size:21px; line-height:1.15; color:var(--ink); margin:2px 0 3px; }
+  .ev p{ font-size:14px; }
+  .ev .ev-note{ margin-top:7px; font-size:13px; font-style:italic; }
+  .ev .map-link{ margin-top:11px; font-size:13.5px; }
+  .ev.key{ border-color:#FBD9CC; background:linear-gradient(180deg,#FFFFFF,#FFF6F2); }
+  .ev.now{ border-color:var(--gold); box-shadow:0 0 0 3px #FFE2D8, 0 16px 34px -28px rgba(10,70,130,.5); }
+  .ev.now .ev-pill{ display:inline-block; }
+  .ev.past{ opacity:.5; }
 
   .btn{ display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-family:var(--sans); font-size:15px; font-weight:500; color:#fff; background:var(--gold); border:none; padding:13px 24px; border-radius:30px; text-decoration:none; box-shadow:0 12px 26px -10px rgba(255,118,83,.75); transition:transform .15s ease; }
   .btn:active{ transform:scale(.98); }
@@ -129,16 +153,6 @@
   .callout .c-ico{ flex:none; width:34px; height:34px; color:var(--gold); }
   .callout p{ font-size:13.5px; font-style:italic; color:#9a4a2e; }
   .callout b{ color:var(--gold); }
-
-  /* ---------- timeline ---------- */
-  .timeline{ position:relative; margin:6px 0 0 8px; padding-left:26px; }
-  .timeline::before{ content:""; position:absolute; left:5px; top:8px; bottom:14px; width:2px; background:var(--sea-light); border-radius:2px; }
-  .tl{ position:relative; padding:0 0 22px; }
-  .tl::before{ content:""; position:absolute; left:-26px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--paper); border:2.5px solid var(--sea-light); }
-  .tl b{ display:block; font-family:var(--serif); font-size:19px; color:var(--ink); font-weight:600; }
-  .tl span{ font-size:14px; color:var(--ink-soft); }
-  .tl.big::before{ background:var(--gold); border-color:var(--gold); width:16px; height:16px; left:-28px; top:2px; box-shadow:0 0 0 4px #FFE2D8; }
-  .tl.big b{ color:var(--gold); font-size:22px; }
 
   /* ---------- surprise venue ---------- */
   .surprise{ text-align:center; background:linear-gradient(180deg,#FFFFFF, #FBF4FB); border-color:#F2DCEC; }
@@ -153,10 +167,8 @@
   .map-frame iframe{ display:block; width:100%; height:310px; border:0; filter:saturate(.9) contrast(.98); }
   .pin-link{ position:absolute; display:flex; align-items:center; gap:9px; max-width:calc(100% - 24px); padding:10px 12px; border-radius:16px; background:rgba(255,255,255,.95); color:var(--ink); text-decoration:none; border:1px solid #E3EEF0; box-shadow:0 14px 28px -20px rgba(10,70,130,.8); }
   .pin-link.church{ left:12px; top:14px; }
-  .pin-link.hotel{ right:12px; bottom:14px; }
   .pin-badge{ flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; color:#fff; box-shadow:0 8px 18px -12px rgba(10,70,130,.8); }
   .pin-badge.church{ background:var(--pink); }
-  .pin-badge.hotel{ background:var(--gold); }
   .pin-badge svg{ width:19px; height:19px; }
   .pin-copy{ min-width:0; }
   .pin-copy b{ display:block; font-family:var(--serif); font-size:16px; line-height:1.18; color:var(--ink); font-weight:600; }
@@ -172,12 +184,16 @@
     .topbar .names{ font-size:16px; }
     .guide-photo{ height:310px; margin-bottom:-228px; }
     .header-copy{ min-height:286px; padding-top:112px; }
-    .quick-links{ margin-top:24px; }
     .quick-link{ font-size:12.5px; padding:9px 10px; }
+    .cd-unit span{ font-size:9.5px; letter-spacing:.1em; }
+    .cd-now{ font-size:21px; }
+    .day{ padding-left:52px; }
+    .day::before{ left:20px; }
+    .ev-ico{ left:-52px; width:42px; height:42px; }
+    .ev-ico svg{ width:21px; height:21px; }
     .map-frame, .map-frame iframe{ height:290px; min-height:290px; }
     .pin-link{ padding:9px 10px; }
     .pin-link.church{ left:10px; top:10px; right:28px; }
-    .pin-link.hotel{ left:28px; right:10px; bottom:10px; }
     .pin-copy b{ font-size:14px; }
     .pin-copy span{ font-size:11.5px; }
   }
@@ -193,16 +209,17 @@
 
 <!-- icon sprite -->
 <svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true"><defs>
-  <symbol id="i-plane" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5 L2.5 9.7 l8 2.8 2.8 8 z"/><path d="M21.5 2.5 L10.5 12.5"/></g></symbol>
-  <symbol id="i-ferry" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 h16 l-1.6 4 H5.6 z"/><path d="M6.6 15 v-4 h7 l2 4"/><path d="M9 11 V8.6 h2.6 V11"/><path d="M2.5 20.6 c1.6 .9 2.7 -.8 4.3 0 c1.6 .9 2.7 -.8 4.3 0 c1.6 .9 2.7 -.8 4.3 0 c1.2 .6 2.1 -.2 3.1 -.4"/></g></symbol>
   <symbol id="i-church" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 v3.6 M10.4 3.4 h3.2"/><path d="M8 11 a4 4 0 0 1 8 0"/><path d="M6.4 11 h11.2 v9.6 H6.4 z"/><path d="M10.4 20.6 v-4.2 a1.6 1.6 0 0 1 3.2 0 v4.2"/></g></symbol>
-  <symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 v-6 a2 2 0 0 1 2 -2 h14 a2 2 0 0 1 2 2 v6"/><path d="M3 16 h18"/><path d="M3.5 19 v1.6 M20.5 19 v1.6"/><path d="M7 11 V9.6 a1 1 0 0 1 1 -1 h8 a1 1 0 0 1 1 1 V11"/></g></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4 V12 l3.2 2"/></g></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5 C12 21.5 5.5 15 5.5 9.5 a6.5 6.5 0 0 1 13 0 C18.5 15 12 21.5 12 21.5 Z"/><circle cx="12" cy="9.5" r="2.3"/></g></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5 a2 2 0 0 1 2 -2 h11 a2 2 0 0 1 2 2 V16 a1.5 1.5 0 0 1 -1.5 1.5 h-12 A1.5 1.5 0 0 1 4.5 16 Z"/><path d="M4.5 12.4 h15"/><path d="M8.2 4.5 v7.9 M15.8 4.5 v7.9"/><circle cx="8.2" cy="15" r=".9"/><circle cx="15.8" cy="15" r=".9"/><path d="M7.4 17.5 V19.4 M16.6 17.5 V19.4"/></g></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.8 4.2 h8.4 l-.8 5 a3.6 3.6 0 0 1 -6.8 0 Z"/><path d="M12 12.9 V19.6"/><path d="M9 20 h6"/><path d="M18.6 5.6 a1 1 0 1 0 .01 0" /></g></symbol>
+  <symbol id="i-dinner" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.4 v4.5 M8 3.4 v4.5 M9.8 3.4 v4.5"/><path d="M6.2 7.9 c0 1.4 .8 2.2 1.8 2.4 v10.3"/><path d="M9.8 7.9 c0 1.4 -.8 2.2 -1.8 2.4"/><path d="M16.6 3.4 c1.7 1.4 2.3 3.4 2.3 5.4 0 1.7 -.9 2.8 -2.3 3.2 Z"/><path d="M16.6 12 v8.6"/></g></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.4 17.4 V6.3 l9.2 -2.1 v11.1"/><circle cx="7" cy="17.6" r="2.4"/><circle cx="16.2" cy="15.5" r="2.4"/><path d="M9.4 9.6 l9.2 -2.1"/></g></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="3.9" r="1.9"/><circle cx="12" cy="20.1" r="1.9"/><circle cx="3.9" cy="12" r="1.9"/><circle cx="20.1" cy="12" r="1.9"/></g></symbol>
   <symbol id="i-sailboat" viewBox="0 0 56 56"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M11,40 H45 L39,47 H17 Z"/><path d="M28,40 V9"/><path d="M28,13 L43,38 H28 Z"/><path d="M28,16 L16,38 H28"/><path d="M5,50 C11,46 15,53 21,49 C27,45 31,52 37,49 C43,45 47,52 51,49"/></g></symbol>
   <symbol id="i-sun" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="9"/><path d="M24,5 V11"/><path d="M24,37 V43"/><path d="M5,24 H11"/><path d="M37,24 H43"/><path d="M10.5,10.5 L14.5,14.5"/><path d="M33.5,33.5 L37.5,37.5"/><path d="M37.5,10.5 L33.5,14.5"/><path d="M14.5,33.5 L10.5,37.5"/></g></symbol>
   <symbol id="i-olive" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7,53 C22,43 37,28 57,11"/><ellipse cx="20" cy="41" rx="7.5" ry="3" transform="rotate(-42 20 41)"/><ellipse cx="30" cy="31" rx="7.5" ry="3" transform="rotate(-42 30 31)"/><ellipse cx="40" cy="22" rx="7.5" ry="3" transform="rotate(-42 40 22)"/><ellipse cx="49" cy="14" rx="7" ry="2.8" transform="rotate(-42 49 14)"/><circle cx="25" cy="46" r="3"/><circle cx="36" cy="37" r="3"/></g></symbol>
-  <symbol id="i-wave" viewBox="0 0 80 44"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4,26 C12,13 23,13 31,26 C39,39 50,39 58,26 C63,17 71,15 77,21"/><path d="M77,21 c4,1 5,7 0,9 c-4,1 -6,-3 -3,-6"/><path d="M9,36 C17,28 28,28 36,35"/><path d="M46,37 C52,32 60,32 66,36"/></g></symbol>
 </defs></svg>
 
 <div class="wrap">
@@ -219,89 +236,89 @@
       <span class="header-doodle a"><svg class="ill" width="42" height="42"><use href="#i-olive"/></svg></span>
       <span class="header-doodle b"><svg class="ill" width="34" height="34"><use href="#i-sun"/></svg></span>
       <div class="eyebrow">Syros, Greece · 15 September 2026</div>
-      <h1>Wedding<br>Guest Guide</h1>
-      <p class="sub">everything you need to know</p>
+      <h1>The<br>Wedding Day</h1>
+      <p class="sub">where to be, and when</p>
       <div class="rule"></div>
     </div>
   </header>
 
-  <nav class="quick-links" aria-label="Guest guide quick links">
-    <a class="quick-link" href="#ferries"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ferry"/></svg>Ferries</a>
+  <!-- COUNTDOWN -->
+  <section class="countdown" id="countdown" aria-live="polite">
+    <div class="cd-eyebrow">Counting down to the ceremony</div>
+    <div class="cd-grid">
+      <div class="cd-unit"><b data-cd="d">--</b><span>days</span></div>
+      <div class="cd-unit"><b data-cd="h">--</b><span>hours</span></div>
+      <div class="cd-unit"><b data-cd="m">--</b><span>min</span></div>
+      <div class="cd-unit"><b data-cd="s">--</b><span>sec</span></div>
+    </div>
+    <div class="cd-live">
+      <span class="cd-now"><span class="cd-dot"></span><span data-cd-now>The day has begun</span></span>
+      <span class="cd-next" data-cd-next></span>
+    </div>
+    <p class="cd-foot"><b>15 September 2026 · 14:30</b> — Church of Saint Nicholas, Ermoupoli <span style="white-space:nowrap">(Greece time)</span></p>
+  </section>
+
+  <nav class="quick-links" aria-label="Wedding day quick links">
+    <a class="quick-link" href="#schedule"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>Schedule</a>
     <a class="quick-link" href="#church"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-church"/></svg>Church</a>
-    <a class="quick-link" href="#hotel"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bed"/></svg>Hotel</a>
-    <a class="quick-link" href="#timeline"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>Timeline</a>
+    <a class="quick-link" href="#map"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>Map</a>
+    <a class="quick-link" href="../seating/"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-table"/></svg>Your table</a>
   </nav>
 
-  <!-- HOW TO GET THERE -->
-  <section class="section" id="ferries">
+  <!-- THE WEDDING DAY -->
+  <section class="section in" id="schedule">
     <div class="sec-head">
-      <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-plane"/></svg></span>
-      <h2>How to get there</h2>
+      <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-clock"/></svg></span>
+      <h2>The wedding day <span class="em">♥</span></h2>
     </div>
-    <p class="lead">Two hops: <b class="ink">fly to Athens</b>, then <b class="ink">catch a ferry</b> across the Aegean to Syros.</p>
+    <p class="lead">Everything happens on <b class="ink">Tuesday 15 September</b>. Make your own way to the church — from there, we're together for the rest of the day.</p>
 
-    <div class="journey">
-      <div class="leg">
-        <span class="leg-ico" style="color:var(--gold)"><svg viewBox="0 0 24 24"><use href="#i-plane"/></svg></span>
-        <span class="leg-text"><b>Fly to Athens</b><span>from Kutaisi or Tbilisi ✈️</span></span>
+    <div class="day">
+      <div class="ev key" data-at="2026-09-15T14:30:00+03:00" data-time="14:30">
+        <span class="ev-ico pink"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-church"/></svg></span>
+        <div class="ev-when"><span class="ev-time">14:30</span><span class="ev-pill">Now</span></div>
+        <h3>The ceremony</h3>
+        <p>Church of Saint Nicholas, <b class="ink">Ermoupoli</b>.</p>
+        <p class="ev-note">Please be seated by 14:20 — we start on time.</p>
+        <a class="map-link" href="https://maps.app.goo.gl/ki1qMkc5tC3Rw5Bg8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </div>
-      <div class="leg-line"></div>
-      <div class="leg">
-        <span class="leg-ico" style="color:var(--sea)"><svg viewBox="0 0 24 24"><use href="#i-ferry"/></svg></span>
-        <span class="leg-text"><b>Ferry to Syros</b><span>from the Athens port ⛴️</span></span>
+
+      <div class="ev" data-at="2026-09-15T16:00:00+03:00" data-time="16:00">
+        <span class="ev-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bus"/></svg></span>
+        <div class="ev-when"><span class="ev-time">16:00</span><span class="ev-pill">Now</span></div>
+        <h3>Transport to the venue</h3>
+        <p>Leaves from <b class="ink">Ermoupoli</b>, after the ceremony.</p>
+        <p class="ev-note">Transport is provided both ways — no need to drive or park.</p>
       </div>
-      <div class="leg-line"></div>
-      <div class="leg">
-        <span class="leg-ico" style="color:var(--green)"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
-        <span class="leg-text"><b>Arrive in Syros</b><span>welcome to the island! 🎉</span></span>
+
+      <div class="ev" data-at="2026-09-15T17:00:00+03:00" data-time="17:00">
+        <span class="ev-ico coral"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-glass"/></svg></span>
+        <div class="ev-when"><span class="ev-time">17:00</span><span class="ev-pill">Now</span></div>
+        <h3>Welcome drinks</h3>
+        <p>At the venue. Arrive, breathe, find your people.</p>
+      </div>
+
+      <div class="ev" data-at="2026-09-15T19:00:00+03:00" data-time="19:00">
+        <span class="ev-ico green"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dinner"/></svg></span>
+        <div class="ev-when"><span class="ev-time">19:00</span><span class="ev-pill">Now</span></div>
+        <h3>Dinner</h3>
+        <p>A seated dinner — everyone has a table.</p>
+        <a class="map-link" href="../seating/" style="color:var(--sea)"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-table"/></svg>Find your table</a>
+      </div>
+
+      <div class="ev" data-at="2026-09-15T21:00:00+03:00" data-time="21:00">
+        <span class="ev-ico pink"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-music"/></svg></span>
+        <div class="ev-when"><span class="ev-time">21:00</span><span class="ev-pill">Now</span></div>
+        <h3>Dancing</h3>
+        <p>Until late — and then a little later than that.</p>
       </div>
     </div>
-
-    <div class="grid2">
-      <div class="opt"><div class="em">⚡</div><b>Fast ferry</b><p>Shorter trip, usually a bit pricier.</p></div>
-      <div class="opt"><div class="em">🌊</div><b>Regular ferry</b><p>Longer but relaxed — often cheaper.</p></div>
-    </div>
-
-    <a class="btn" href="https://www.ferryscanner.com/en/ferry?dep=ATH&tripType=oneWay&arr=JSY" target="_blank" rel="noopener">Book ferry tickets
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
 
     <div class="callout">
       <span class="c-ico"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
-      <p><b>Heads up:</b> the ferry port isn't in central Athens. Athens airport to Piraeus port usually takes <b>45–75 minutes</b> by taxi, and longer by public transport. Allow at least <b>1 hour</b> (often more) to reach it from the airport or city — so don't book the ferry too close to your flight's arrival.</p>
-    </div>
-  </section>
-
-  <!-- WHEN TO ARRIVE -->
-  <section class="section" id="timeline">
-    <div class="sec-head">
-      <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-clock"/></svg></span>
-      <h2>When to arrive <span class="em">📅</span></h2>
-    </div>
-    <p class="lead">The wedding is on <b class="ink">15th September</b>. Come early so we can enjoy Syros together before the big day.</p>
-
-    <div class="timeline">
-      <div class="tl"><b>13 Sep · evening</b><span>arrive on the island (recommended)</span></div>
-      <div class="tl"><b>14 Sep · morning</b><span>…or by this morning at the latest</span></div>
-      <div class="tl big"><b>15 Sep · Wedding day ♥</b><span>the celebration in Syros</span></div>
-      <div class="tl"><b>16 Sep</b><span>stay at least until late evening on the island</span></div>
-    </div>
-    <p class="muted" style="font-size:14px;margin-top:4px">More details to follow — but the idea is simple: arrive early, leave late, and soak up the island with us.</p>
-  </section>
-
-  <!-- WHERE TO STAY -->
-  <section class="section" id="hotel">
-    <div class="sec-head">
-      <span class="sec-ico green"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-bed"/></svg></span>
-      <h2>Where to stay <span class="em">🏨</span></h2>
-    </div>
-    <div class="card">
-      <h3>Base yourself in Ermoupoli</h3>
-      <p>The main town of Syros — the most convenient spot, and the best base for spending time together before and after the wedding. A <b class="ink">hotel or Airbnb</b> here both work perfectly. We are staying at <b class="ink">Apollonion Palace Hotel</b>.</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Apollonion%20Palace%20Hotel%20Ermoupoli%20Syros%20Greece" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open Apollonion Palace in Google Maps
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
-      <p class="muted">Staying in another village is totally fine too — just keep in mind you'll likely need a <b class="ink">taxi, car, or scooter</b> 🚕 🛵 to get around.</p>
+      <p><b>Times are Greece time (EEST)</b> and approximate after the ceremony — the only one to be early for is <b>14:30</b>.</p>
     </div>
   </section>
 
@@ -313,7 +330,7 @@
     </div>
     <div class="card">
       <h3>Saint Nicholas Church</h3>
-      <p>The wedding ceremony will take place here, in the heart of <b class="ink">Ermoupoli, Syros</b>.</p>
+      <p>The wedding ceremony will take place here, in the heart of <b class="ink">Ermoupoli, Syros</b>, at <b class="ink">14:30</b>.</p>
       <a class="map-link" href="https://maps.app.goo.gl/ki1qMkc5tC3Rw5Bg8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
@@ -326,7 +343,7 @@
       <span class="sec-ico blue"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-pin"/></svg></span>
       <h2>Ermoupoli map</h2>
     </div>
-    <div class="card map-card" aria-label="Map of the wedding and hotel locations in Ermoupoli, Syros">
+    <div class="card map-card" aria-label="Map of the ceremony location in Ermoupoli, Syros">
       <div class="map-frame">
         <iframe
           src="https://www.openstreetmap.org/export/embed.html?bbox=24.9364%2C37.4409%2C24.9534%2C37.4519&amp;layer=mapnik&amp;marker=37.4464%2C24.9449"
@@ -337,14 +354,7 @@
           <span class="pin-badge church"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
           <span class="pin-copy">
             <b>Church of Saint Nicholas</b>
-            <span>Place where we will get married.</span>
-          </span>
-        </a>
-        <a class="pin-link hotel" href="https://www.google.com/maps/search/?api=1&amp;query=Apollonion%20Palace%20Hotel%20Ermoupoli%20Syros%20Greece" target="_blank" rel="noopener">
-          <span class="pin-badge hotel"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
-          <span class="pin-copy">
-            <b>Apollonion Hotel</b>
-            <span>Place we are staying.</span>
+            <span>Ceremony at 14:30.</span>
           </span>
         </a>
       </div>
@@ -362,9 +372,21 @@
     </div>
     <div class="card surprise">
       <div class="big-em">🤫</div>
-      <h3>It's still a surprise</h3>
-      <p>We're keeping the celebration spot under wraps for now… <b class="ink">Transport from Ermoupoli to the venue will be provided</b>, so you won't need to worry about getting there.</p>
-      <span class="tag">More details coming soon ✨</span>
+      <h3>Still a surprise</h3>
+      <p>You'll find out when you step off the bus. <b class="ink">Transport from Ermoupoli and back is provided</b>, so you won't need to worry about getting there — or home.</p>
+      <span class="tag">Just be at the church at 14:30 ✨</span>
+    </div>
+  </section>
+
+  <!-- THE DAY AFTER -->
+  <section class="section" id="after">
+    <div class="sec-head">
+      <span class="sec-ico green"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-sun"/></svg></span>
+      <h2>The day after ☀️</h2>
+    </div>
+    <div class="card">
+      <h3>16 September</h3>
+      <p>Stay on the island at least until late evening if you can — a slow day in Syros together is the best possible ending. We'll share plans on the night.</p>
     </div>
   </section>
 
@@ -390,6 +412,67 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.section').forEach(s => io.observe(s));
+
+  /* ---------- countdown to the ceremony + live "now / next" ---------- */
+  (function(){
+    const cd = document.getElementById('countdown');
+    if(!cd) return;
+    const evs = Array.prototype.map.call(document.querySelectorAll('.ev'), (el) => ({
+      el,
+      at: new Date(el.dataset.at).getTime(),
+      time: el.dataset.time || '',
+      title: (el.querySelector('h3').textContent || '').trim()
+    }));
+    if(!evs.length || isNaN(evs[0].at)) return;
+
+    const START = evs[0].at;
+    const END = evs[evs.length - 1].at + 5 * 3600 * 1000;  /* party winds down ~5h after dancing starts */
+    const out = {
+      d: cd.querySelector('[data-cd="d"]'), h: cd.querySelector('[data-cd="h"]'),
+      m: cd.querySelector('[data-cd="m"]'), s: cd.querySelector('[data-cd="s"]')
+    };
+    const eyebrow = cd.querySelector('.cd-eyebrow');
+    const nowEl = cd.querySelector('[data-cd-now]');
+    const nextEl = cd.querySelector('[data-cd-next]');
+    const pad = (n) => (n < 10 ? '0' + n : String(n));
+
+    function tick(){
+      const now = Date.now();
+
+      let cur = -1;
+      for(let i = 0; i < evs.length; i++){ if(now >= evs[i].at) cur = i; }
+      evs.forEach((e, i) => {
+        e.el.classList.toggle('past', i < cur);
+        e.el.classList.toggle('now', i === cur && now < END);
+      });
+
+      if(now < START){
+        cd.classList.remove('live');
+        const left = Math.floor((START - now) / 1000);
+        out.d.textContent = pad(Math.floor(left / 86400));
+        out.h.textContent = pad(Math.floor((left % 86400) / 3600));
+        out.m.textContent = pad(Math.floor((left % 3600) / 60));
+        out.s.textContent = pad(left % 60);
+        eyebrow.textContent = left < 86400 ? 'Today is the day' : 'Counting down to the ceremony';
+        return;
+      }
+
+      cd.classList.add('live');
+      if(now >= END){
+        eyebrow.textContent = 'Thank you for celebrating with us';
+        nowEl.textContent = 'What a day ♥';
+        nextEl.textContent = '';
+        return;
+      }
+      eyebrow.textContent = 'Happening now';
+      nowEl.textContent = evs[cur].title;
+      const next = evs[cur + 1];
+      nextEl.textContent = next ? 'Next · ' + next.time + ' ' + next.title.toLowerCase() : 'Dancing until late ♥';
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
 </script>
 </body>
 </html>
