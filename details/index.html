@@ -95,6 +95,9 @@
   .quick-link{ display:flex; align-items:center; justify-content:center; gap:7px; min-height:42px; padding:10px 12px; border-radius:24px; background:rgba(255,255,255,.82); border:1px solid #E1EEF0; color:var(--sea); font-size:13px; font-weight:500; text-decoration:none; box-shadow:0 12px 26px -24px rgba(10,70,130,.75); }
   .quick-link svg{ width:16px; height:16px; flex:none; }
   .quick-link:active{ transform:scale(.98); }
+  .quick-link.wide{ grid-column:1 / -1; min-height:58px; padding:13px 18px; gap:10px; font-size:16px; font-weight:500; color:#fff; background:var(--gold); border-color:var(--gold); box-shadow:0 16px 30px -12px rgba(255,118,83,.85); }
+  .quick-link.wide svg{ width:21px; height:21px; }
+  .quick-link.wide .qa{ width:16px; height:16px; opacity:.85; }
 
   /* ---------- section ---------- */
   .section{ margin-top:54px; opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -261,8 +264,7 @@
   <nav class="quick-links" aria-label="Wedding day quick links">
     <a class="quick-link" href="#schedule"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>Schedule</a>
     <a class="quick-link" href="#church"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-church"/></svg>Church</a>
-    <a class="quick-link" href="#map"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>Map</a>
-    <a class="quick-link" href="../seating/"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-table"/></svg>Your table</a>
+    <a class="quick-link wide" href="../seating/"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-table"/></svg>Find your table<svg class="qa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
   </nav>
 
   <!-- THE WEDDING DAY -->
