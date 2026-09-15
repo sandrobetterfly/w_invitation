@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Brunch · Sandro &amp; Kopi · Syros</title>
-<meta name="description" content="Brunch on 16 September at 12:00. Pick your dish and your coffee." />
+<meta name="description" content="Brunch at Pavone in Ermoupoli, 16 September at 12:00. Pick your dish and your coffee." />
 <meta property="og:title" content="Sandro & Kopi — Brunch, 16 September" />
-<meta property="og:description" content="Brunch at 12:00 the day after the wedding. Choose your dish and your coffee." />
+<meta property="og:description" content="Pavone, Ermoupoli — 12:00 the day after the wedding. Choose your dish and your coffee." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://wedding.khasia.ge/brunch" />
 <meta property="og:image" content="https://wedding.khasia.ge/og-image.jpg" />
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Ermoupoli, Syros — Sandro & Kopi's wedding" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sandro & Kopi — Brunch, 16 September" />
-<meta name="twitter:description" content="Brunch at 12:00 the day after the wedding. Choose your dish and your coffee." />
+<meta name="twitter:description" content="Pavone, Ermoupoli — 12:00 the day after the wedding. Choose your dish and your coffee." />
 <meta name="twitter:image" content="https://wedding.khasia.ge/og-image.jpg" />
 <meta name="theme-color" content="#E1EFEE" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%98%95%3C/text%3E%3C/svg%3E" />
@@ -75,6 +75,14 @@
   .when .big{ font-family:var(--serif); font-weight:600; font-size:30px; line-height:1.1; color:var(--ink); }
   .when .time{ display:inline-flex; align-items:center; gap:8px; margin-top:10px; font-size:15px; font-weight:500; color:var(--gold); background:#FFF1EC; border-radius:24px; padding:7px 16px; }
   .when .time svg{ width:17px; height:17px; }
+  .when .venue{ display:inline-flex; align-items:center; gap:11px; margin-top:17px; text-align:left; }
+  .when .venue-badge{ flex:none; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:#D7F0E0; color:var(--green); }
+  .when .venue-badge svg{ width:20px; height:20px; }
+  .when .venue-txt b{ display:block; font-family:var(--serif); font-size:21px; font-weight:600; color:var(--ink); line-height:1.15; }
+  .when .venue-txt span{ display:block; margin-top:1px; font-size:13px; color:var(--ink-soft); }
+  .when .map-link{ display:inline-flex; align-items:center; gap:7px; margin-top:11px; font-size:14px; font-weight:500; color:var(--green); text-decoration:none; }
+  .when .map-link svg:first-child{ flex:none; }
+  .when .map-link:active{ opacity:.7; }
   .when p{ font-size:14px; margin-top:12px; }
 
   /* ---------- section ---------- */
@@ -164,6 +172,7 @@
   <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4 V12 l3.2 2"/></g></symbol>
   <symbol id="i-coffee" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 8.6 h13 v6 a4.4 4.4 0 0 1 -4.4 4.4 h-4.2 a4.4 4.4 0 0 1 -4.4 -4.4 Z"/><path d="M16.8 10 h1.9 a2.4 2.4 0 0 1 0 4.8 h-1.9"/><path d="M2.6 21.4 h15.4"/><path d="M7.4 5.6 c0 -1 .9 -1.4 .9 -2.4 M11 5.6 c0 -1 .9 -1.4 .9 -2.4"/></g></symbol>
   <symbol id="i-dinner" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.4 v4.5 M8 3.4 v4.5 M9.8 3.4 v4.5"/><path d="M6.2 7.9 c0 1.4 .8 2.2 1.8 2.4 v10.3"/><path d="M9.8 7.9 c0 1.4 -.8 2.2 -1.8 2.4"/><path d="M16.6 3.4 c1.7 1.4 2.3 3.4 2.3 5.4 0 1.7 -.9 2.8 -2.3 3.2 Z"/><path d="M16.6 12 v8.6"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5 C12 21.5 5.5 15 5.5 9.5 a6.5 6.5 0 0 1 13 0 C18.5 15 12 21.5 12 21.5 Z"/><circle cx="12" cy="9.5" r="2.3"/></g></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6 l5 5 L19.5 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-sun" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="9"/><path d="M24,5 V11"/><path d="M24,37 V43"/><path d="M5,24 H11"/><path d="M37,24 H43"/><path d="M10.5,10.5 L14.5,14.5"/><path d="M33.5,33.5 L37.5,37.5"/><path d="M37.5,10.5 L33.5,14.5"/><path d="M14.5,33.5 L10.5,37.5"/></g></symbol>
   <symbol id="i-olive" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7,53 C22,43 37,28 57,11"/><ellipse cx="20" cy="41" rx="7.5" ry="3" transform="rotate(-42 20 41)"/><ellipse cx="30" cy="31" rx="7.5" ry="3" transform="rotate(-42 30 31)"/><ellipse cx="40" cy="22" rx="7.5" ry="3" transform="rotate(-42 40 22)"/><ellipse cx="49" cy="14" rx="7" ry="2.8" transform="rotate(-42 49 14)"/><circle cx="25" cy="46" r="3"/><circle cx="36" cy="37" r="3"/></g></symbol>
@@ -188,6 +197,13 @@
   <section class="when">
     <div class="big">Wednesday 16 September</div>
     <span class="time"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>12:00 noon</span>
+    <div class="venue">
+      <span class="venue-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
+      <span class="venue-txt"><b>Pavone</b><span>Ermoupoli, Syros</span></span>
+    </div>
+    <a class="map-link" href="https://maps.app.goo.gl/DpqV9xagKwt8bC8Z9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16"><use href="#i-pin"/></svg>Open in Google Maps
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
     <p>Slow start, good coffee, and everyone at one long table before the goodbyes. <b class="ink">Choose your dish and your coffee below</b> so the kitchen can have it ready for you.</p>
   </section>
 
