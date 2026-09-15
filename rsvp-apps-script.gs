@@ -1,5 +1,5 @@
 /* ============================================================================
-   RSVP → Google Sheet  (Google Apps Script)
+   RSVP + Brunch orders → Google Sheet  (Google Apps Script)
    Sheet: https://docs.google.com/spreadsheets/d/1aXx-z83hDJFYD3kV-ukJaIDmPeA51jUG4TkGkPeZrCw/edit
 
    HOW TO DEPLOY (about 2 minutes):
@@ -18,6 +18,14 @@
    9. Send that URL back, and it gets pasted into RSVP_ENDPOINT in index.html.
 
    Test: paste the /exec URL in a browser — it should say "RSVP endpoint is live."
+
+   RE-DEPLOYING AN UPDATE (keeps the same /exec URL, so nothing in the site
+   needs changing): Deploy → Manage deployments → pencil ✏ → Version: New
+   version → Deploy. A plain "New deployment" would mint a NEW url instead.
+
+   Two destinations: wedding RSVPs land on the 'RSVPs' tab; brunch orders
+   (posted with type=brunch from /brunch) land on a 'Brunch' tab, created
+   automatically on the first order.
    ============================================================================ */
 
 function doPost(e) {
@@ -25,6 +33,32 @@ function doPost(e) {
   lock.tryLock(10000); // avoid two submissions writing the same row
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var p = (e && e.parameter) || {};
+
+    // Brunch orders (from /brunch) carry type=brunch and go to their own tab.
+    if (String(p.type || '').toLowerCase() === 'brunch') {
+      var bs = ss.getSheetByName('Brunch');
+      if (!bs) {
+        bs = ss.insertSheet('Brunch');
+      }
+      if (bs.getLastRow() === 0) {
+        bs.appendRow(['First name', 'Last name', 'Dish', 'Coffee', 'Ordered at (browser)', 'Received at (sheet)']);
+      }
+      bs.appendRow([
+        p.first || '',
+        p.last || '',
+        p.food || '',
+        p.coffee || '',
+        p.orderedAt || '',
+        new Date()
+      ]);
+
+      return ContentService
+        .createTextOutput(JSON.stringify({ ok: true }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Otherwise: a wedding RSVP, exactly as before.
     var sheet = ss.getSheetByName('RSVPs') || ss.getSheets()[0];
 
     // Add a header row the first time.
@@ -32,7 +66,6 @@ function doPost(e) {
       sheet.appendRow(['First name', 'Last name', 'Sent by', 'Responded at (browser)', 'Received at (sheet)']);
     }
 
-    var p = (e && e.parameter) || {};
     sheet.appendRow([
       p.first || '',
       p.last || '',

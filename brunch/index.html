@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Brunch · Sandro &amp; Kopi · Syros</title>
+<meta name="description" content="Brunch on 16 September at 12:00. Pick your dish and your coffee." />
+<meta property="og:title" content="Sandro & Kopi — Brunch, 16 September" />
+<meta property="og:description" content="Brunch at 12:00 the day after the wedding. Choose your dish and your coffee." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wedding.khasia.ge/brunch" />
+<meta property="og:image" content="https://wedding.khasia.ge/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="674" />
+<meta property="og:image:alt" content="Ermoupoli, Syros — Sandro & Kopi's wedding" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sandro & Kopi — Brunch, 16 September" />
+<meta name="twitter:description" content="Brunch at 12:00 the day after the wedding. Choose your dish and your coffee." />
+<meta name="twitter:image" content="https://wedding.khasia.ge/og-image.jpg" />
+<meta name="theme-color" content="#E1EFEE" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%98%95%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#E1EFEE; --bg-2:#CCE6E6; --paper:#FFFFFF;
+    --ink:#0A4682; --ink-soft:#557FA4;
+    --sea:#075BB4; --sea-light:#6FCAD6; --sea-pale:#C6E7EC;
+    --gold:#FF7653; --pink:#EC8CBC; --green:#2E9E5B; --line:#BCDBDC;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Jost', system-ui, sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--sans); color:var(--ink);
+    background-color:var(--bg-2);
+    background-image:
+      radial-gradient(rgba(140,175,180,.2) 1px, transparent 1.5px),
+      radial-gradient(150% 26% at 50% 0%, #FFFFFF 0%, var(--bg) 55%, var(--bg-2) 100%);
+    background-size:26px 26px, 100% 100%;
+    background-repeat:repeat, no-repeat;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh; min-height:100svh; overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+    line-height:1.65;
+  }
+  .ill{ display:block; }
+  .wrap{ width:100%; max-width:600px; margin:0 auto; padding:0 22px calc(env(safe-area-inset-bottom) + 40px); position:relative; z-index:1; }
+
+  /* ---------- top bar ---------- */
+  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 22px 8px; background:#3B82F6; }
+  .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--gold); text-decoration:none; }
+  .back svg{ width:16px; height:16px; }
+  .topbar .back{ color:#fff; }
+  .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:#fff; }
+
+  /* ---------- header ---------- */
+  header{ text-align:center; padding:34px 0 4px; position:relative; }
+  .eyebrow{ font-size:12px; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+  header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(52px,16vw,80px); line-height:.95; color:var(--ink); margin:10px 0 8px; }
+  header .sub{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink-soft); }
+  .header-doodle{ position:absolute; opacity:.9; animation:float 8s ease-in-out infinite; }
+  .header-doodle.a{ top:16px; left:-2px; color:#36AEBE; }
+  .header-doodle.b{ top:30px; right:-2px; color:var(--gold); animation-delay:-3s; }
+  @keyframes float{ 50%{ transform:translateY(-9px) rotate(3deg);} }
+  .rule{ width:54px; height:1px; background:var(--gold); margin:20px auto 0; }
+
+  /* ---------- when / where ---------- */
+  .when{ position:relative; margin-top:24px; background:var(--paper); border:1px solid #E4EEF0; border-radius:22px; padding:20px 18px; text-align:center; overflow:hidden; box-shadow:0 18px 38px -28px rgba(10,70,130,.55); }
+  .when::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--pink),var(--sea-light)); }
+  .when .big{ font-family:var(--serif); font-weight:600; font-size:30px; line-height:1.1; color:var(--ink); }
+  .when .time{ display:inline-flex; align-items:center; gap:8px; margin-top:10px; font-size:15px; font-weight:500; color:var(--gold); background:#FFF1EC; border-radius:24px; padding:7px 16px; }
+  .when .time svg{ width:17px; height:17px; }
+  .when p{ font-size:14px; margin-top:12px; }
+
+  /* ---------- section ---------- */
+  .section{ margin-top:46px; }
+  .section[id]{ scroll-margin-top:18px; }
+  .sec-head{ display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .sec-ico{ flex:none; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--sea-pale); }
+  .sec-ico svg{ width:26px; height:26px; }
+  .sec-ico.coral{ background:#FFE2D8; color:var(--gold); }
+  .sec-ico.green{ background:#D7F0E0; color:var(--green); }
+  .sec-head h2{ font-family:var(--serif); font-weight:600; font-size:27px; line-height:1.1; color:var(--ink); }
+  .sec-note{ font-size:13.5px; color:var(--ink-soft); margin:0 0 16px 58px; }
+
+  p{ font-size:15.5px; color:var(--ink-soft); }
+  p b, .ink{ color:var(--ink); font-weight:500; }
+
+  /* ---------- selectable options ---------- */
+  .opts{ display:grid; gap:10px; }
+  .opts.two{ grid-template-columns:1fr 1fr; }
+  .opt-l{ position:relative; display:flex; align-items:center; gap:12px; background:var(--paper); border:1.5px solid #E4EEF0; border-radius:16px; padding:14px 15px; cursor:pointer;
+    box-shadow:0 14px 30px -26px rgba(10,70,130,.5); transition:border-color .18s ease, background .18s ease, transform .12s ease; }
+  .opt-l input{ position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
+  .opt-l .tick{ flex:none; width:23px; height:23px; border-radius:50%; border:1.5px solid var(--line); display:grid; place-items:center; color:#fff; transition:background .18s ease, border-color .18s ease; }
+  .opt-l .tick svg{ width:13px; height:13px; opacity:0; transition:opacity .18s ease; }
+  .opt-l .txt{ min-width:0; }
+  .opt-l b{ display:block; font-family:var(--serif); font-size:19px; font-weight:600; color:var(--ink); line-height:1.2; }
+  .opt-l p{ font-size:13.5px; margin-top:3px; line-height:1.5; }
+  .opt-l:active{ transform:scale(.99); }
+  .opt-l.sel, .opt-l:has(input:checked){ border-color:var(--gold); background:#FFF8F5; }
+  .opt-l.sel .tick, .opt-l:has(input:checked) .tick{ background:var(--gold); border-color:var(--gold); }
+  .opt-l.sel .tick svg, .opt-l:has(input:checked) .tick svg{ opacity:1; }
+  .opt-l:focus-within{ border-color:var(--gold); }
+  .opts.two .opt-l{ padding:13px 12px; gap:9px; }
+  .opts.two .opt-l b{ font-size:17px; }
+
+  /* ---------- your details + send ---------- */
+  .order{ margin-top:16px; background:var(--paper); border:1px solid #E4EEF0; border-radius:20px; padding:20px 18px; box-shadow:0 16px 34px -26px rgba(10,70,130,.5); }
+  .order h3{ font-family:var(--serif); font-weight:600; font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .order input{ width:100%; font-family:var(--sans); font-size:16px; color:var(--ink); background:#F7FBFB; border:1.5px solid #E4EEF0; border-radius:14px; padding:13px 15px; margin-bottom:10px; -webkit-appearance:none; }
+  .order input::placeholder{ color:#9DBBC9; }
+  .order input:focus{ outline:none; border-color:var(--gold); background:#fff; }
+  .summary{ margin:6px 0 14px; font-size:14px; color:var(--ink-soft); background:var(--sea-pale); border-radius:14px; padding:12px 14px; }
+  .summary b{ color:var(--ink); font-weight:500; }
+  .summary .pending{ color:var(--gold); font-style:italic; }
+  .btn-send{ display:flex; align-items:center; justify-content:center; gap:9px; width:100%; min-height:56px; font-family:var(--sans); font-size:16px; font-weight:500; color:#fff; background:var(--gold); border:none; border-radius:30px; cursor:pointer;
+    box-shadow:0 16px 30px -12px rgba(255,118,83,.85); transition:transform .15s ease, opacity .2s ease; }
+  .btn-send:active{ transform:scale(.99); }
+  .btn-send[disabled]{ opacity:.55; box-shadow:none; cursor:default; }
+  .err{ display:none; margin-top:11px; font-size:13.5px; font-style:italic; color:#C0432A; text-align:center; }
+  .err.show{ display:block; }
+
+  /* ---------- sent ---------- */
+  .sent{ text-align:center; background:linear-gradient(180deg,#FFFFFF,#F5FBF7); border-color:#D7EEE0; }
+  .sent .big-em{ font-size:46px; line-height:1; }
+  .sent h3{ font-size:26px; margin:8px 0 6px; }
+  .sent .ticket{ margin:16px 0 4px; background:var(--sea-pale); border-radius:16px; padding:14px 16px; text-align:left; }
+  .sent .ticket div{ display:flex; gap:10px; align-items:baseline; font-size:14.5px; color:var(--ink-soft); }
+  .sent .ticket div + div{ margin-top:7px; }
+  .sent .ticket span{ flex:none; width:64px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+  .sent .ticket b{ font-family:var(--serif); font-size:18px; font-weight:600; color:var(--ink); line-height:1.2; }
+  .btn-again{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-family:var(--sans); font-size:14.5px; font-weight:500; color:var(--sea); background:none; border:1.5px solid var(--sea-pale); border-radius:26px; padding:11px 20px; cursor:pointer; }
+  .btn-again:active{ transform:scale(.98); }
+
+  /* ---------- footer ---------- */
+  footer{ text-align:center; margin-top:60px; padding-top:28px; border-top:1px solid var(--line); }
+  footer .fnames{ font-family:var(--serif); font-weight:600; font-size:24px; color:var(--ink); }
+  footer .fwhen{ font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-top:6px; }
+  footer .back{ margin-top:18px; }
+
+  @media (max-width:420px){
+    .topbar .names{ font-size:16px; }
+    .sec-note{ margin-left:0; }
+    .opts.two .opt-l b{ font-size:16px; }
+    .sent .ticket span{ width:56px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true"><defs>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4 V12 l3.2 2"/></g></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 8.6 h13 v6 a4.4 4.4 0 0 1 -4.4 4.4 h-4.2 a4.4 4.4 0 0 1 -4.4 -4.4 Z"/><path d="M16.8 10 h1.9 a2.4 2.4 0 0 1 0 4.8 h-1.9"/><path d="M2.6 21.4 h15.4"/><path d="M7.4 5.6 c0 -1 .9 -1.4 .9 -2.4 M11 5.6 c0 -1 .9 -1.4 .9 -2.4"/></g></symbol>
+  <symbol id="i-dinner" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.4 v4.5 M8 3.4 v4.5 M9.8 3.4 v4.5"/><path d="M6.2 7.9 c0 1.4 .8 2.2 1.8 2.4 v10.3"/><path d="M9.8 7.9 c0 1.4 -.8 2.2 -1.8 2.4"/><path d="M16.6 3.4 c1.7 1.4 2.3 3.4 2.3 5.4 0 1.7 -.9 2.8 -2.3 3.2 Z"/><path d="M16.6 12 v8.6"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6 l5 5 L19.5 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="9"/><path d="M24,5 V11"/><path d="M24,37 V43"/><path d="M5,24 H11"/><path d="M37,24 H43"/><path d="M10.5,10.5 L14.5,14.5"/><path d="M33.5,33.5 L37.5,37.5"/><path d="M37.5,10.5 L33.5,14.5"/><path d="M14.5,33.5 L10.5,37.5"/></g></symbol>
+  <symbol id="i-olive" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7,53 C22,43 37,28 57,11"/><ellipse cx="20" cy="41" rx="7.5" ry="3" transform="rotate(-42 20 41)"/><ellipse cx="30" cy="31" rx="7.5" ry="3" transform="rotate(-42 30 31)"/><ellipse cx="40" cy="22" rx="7.5" ry="3" transform="rotate(-42 40 22)"/><ellipse cx="49" cy="14" rx="7" ry="2.8" transform="rotate(-42 49 14)"/><circle cx="25" cy="46" r="3"/><circle cx="36" cy="37" r="3"/></g></symbol>
+</defs></svg>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="../details/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Wedding day</a>
+    <span class="names">Sandro &amp; Kopi</span>
+  </div>
+
+  <header>
+    <span class="header-doodle a"><svg class="ill" width="40" height="40"><use href="#i-olive"/></svg></span>
+    <span class="header-doodle b"><svg class="ill" width="32" height="32"><use href="#i-sun"/></svg></span>
+    <div class="eyebrow">The morning after</div>
+    <h1>Brunch</h1>
+    <p class="sub">one more round, together</p>
+    <div class="rule"></div>
+  </header>
+
+  <section class="when">
+    <div class="big">Wednesday 16 September</div>
+    <span class="time"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg>12:00 noon</span>
+    <p>Slow start, good coffee, and everyone at one long table before the goodbyes. <b class="ink">Choose your dish and your coffee below</b> so the kitchen can have it ready for you.</p>
+  </section>
+
+  <form id="brunchForm" novalidate>
+    <!-- FOOD -->
+    <section class="section" id="food">
+      <div class="sec-head">
+        <span class="sec-ico coral"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-dinner"/></svg></span>
+        <h2>Pick your dish</h2>
+      </div>
+      <p class="sec-note">One per guest.</p>
+      <div class="opts" role="radiogroup" aria-label="Choose a dish">
+        <label class="opt-l">
+          <input type="radio" name="food" value="Breakfast tacos" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Breakfast tacos</b><p>Scrambled eggs, cherry tomatoes, avocado, and smoked salmon.</p></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="food" value="Shakshouka" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Shakshouka</b><p>Tomato sauce, feta cheese, oregano, and toasted bread.</p></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="food" value="Omelette" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Omelette</b><p>Avocado omelette with smoked turkey and Parmesan.</p></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="food" value="Red-berry bowl" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Red-berry bowl</b><p>Greek yogurt with red berries, granola, strawberry, and honey.</p></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="food" value="Pancakes" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Pancakes</b><p>With hazelnut praline, almond crumble, and marshmallows.</p></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- COFFEE -->
+    <section class="section" id="coffee">
+      <div class="sec-head">
+        <span class="sec-ico green"><svg viewBox="0 0 24 24" width="26" height="26"><use href="#i-coffee"/></svg></span>
+        <h2>Pick your coffee</h2>
+      </div>
+      <p class="sec-note">One per guest.</p>
+      <div class="opts two" role="radiogroup" aria-label="Choose a coffee">
+        <label class="opt-l">
+          <input type="radio" name="coffee" value="Americano" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Americano</b></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="coffee" value="Espresso" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Espresso</b></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="coffee" value="Greek coffee" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Greek coffee</b></span>
+        </label>
+        <label class="opt-l">
+          <input type="radio" name="coffee" value="Cappuccino" />
+          <span class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="txt"><b>Cappuccino</b></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- NAME + SEND -->
+    <section class="section" id="send">
+      <div class="order">
+        <h3>Who is this for?</h3>
+        <input name="first" placeholder="First name" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" />
+        <input name="last" placeholder="Last name" autocomplete="family-name" autocapitalize="words" enterkeyhint="done" />
+        <div class="summary" id="summary">
+          <b>Your order</b> — <span id="sumFood" class="pending">no dish yet</span> · <span id="sumCoffee" class="pending">no coffee yet</span>
+        </div>
+        <button type="submit" class="btn-send" id="sendBtn">Send my order</button>
+        <p class="err" id="err"></p>
+      </div>
+    </section>
+  </form>
+
+  <!-- SENT -->
+  <section class="section" id="doneWrap" hidden>
+    <div class="order sent">
+      <div class="big-em">🥐</div>
+      <h3>Order sent!</h3>
+      <p>See you at noon on the 16th ♥</p>
+      <div class="ticket">
+        <div><span>Name</span><b id="tName"></b></div>
+        <div><span>Dish</span><b id="tFood"></b></div>
+        <div><span>Coffee</span><b id="tCoffee"></b></div>
+      </div>
+      <button type="button" class="btn-again" id="againBtn">Order for someone else</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fnames">Sandro &amp; Kopi</div>
+    <div class="fwhen">Syros, Greece · 16 September 2026</div>
+    <a class="back" href="../details/" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Back to the wedding day</a>
+  </footer>
+</div>
+
+<script>
+  /* Same Apps Script web app as the RSVP form — brunch orders are tagged
+     type=brunch and land on their own "Brunch" tab of the sheet. */
+  const BRUNCH_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxxkY8ChxUn4fzQljeUcQ9TD7Ka43Flky3xqjqODG_Rl6vwzFqqbUAYLDAik1_bdUH/exec';
+
+  const form = document.getElementById('brunchForm');
+  const errEl = document.getElementById('err');
+  const sendBtn = document.getElementById('sendBtn');
+  const doneWrap = document.getElementById('doneWrap');
+  const sumFood = document.getElementById('sumFood');
+  const sumCoffee = document.getElementById('sumCoffee');
+
+  /* selected-state class, so we don't depend on CSS :has() on older phones */
+  form.addEventListener('change', (e) => {
+    const inp = e.target;
+    if(inp.type !== 'radio') return;
+    form.querySelectorAll('input[name="' + inp.name + '"]').forEach(o => {
+      o.closest('.opt-l').classList.toggle('sel', o.checked);
+    });
+    syncSummary();
+    errEl.classList.remove('show');
+  });
+
+  function picked(name){
+    const el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+  function syncSummary(){
+    const f = picked('food'), c = picked('coffee');
+    sumFood.textContent = f || 'no dish yet';
+    sumFood.classList.toggle('pending', !f);
+    sumCoffee.textContent = c || 'no coffee yet';
+    sumCoffee.classList.toggle('pending', !c);
+  }
+
+  function fail(msg, focusSel){
+    errEl.textContent = msg;
+    errEl.classList.add('show');
+    const t = focusSel && document.querySelector(focusSel);
+    if(t) t.scrollIntoView({ block:'center' });
+  }
+
+  /* one retry — the response is opaque (no-cors) so only a network throw is visible */
+  async function post(body){
+    for(let attempt = 0; attempt < 2; attempt++){
+      try{
+        await fetch(BRUNCH_ENDPOINT, { method:'POST', mode:'no-cors',
+          headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
+          body:new URLSearchParams(body).toString() });
+        return true;
+      }catch(err){
+        if(attempt === 1) return false;
+        await new Promise(r => setTimeout(r, 900));
+      }
+    }
+    return false;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const food = picked('food'), coffee = picked('coffee');
+    const first = form.first.value.trim(), last = form.last.value.trim();
+
+    if(!food)   return fail('Please pick a dish.', '#food');
+    if(!coffee) return fail('Please pick a coffee.', '#coffee');
+    if(!first || !last) return fail('Please add your first and last name.', '#send');
+    errEl.classList.remove('show');
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Sending…';
+    const stamp = new Date().toISOString();
+    await post({
+      type:'brunch', first, last, food, coffee, orderedAt:stamp,
+      /* Safety net: if the Apps Script deployment is still the RSVP-only version it
+         ignores type/food/coffee and would drop the order silently (the response is
+         opaque, so nobody would know). These two fields it DOES read, so the order
+         still lands — as a row on the RSVPs tab — and nothing is lost. The updated
+         script routes on type=brunch before reaching them, so they're then unused. */
+      sender:'BRUNCH — ' + food + ' / ' + coffee,
+      respondedAt:stamp
+    });
+
+    document.getElementById('tName').textContent = first + ' ' + last;
+    document.getElementById('tFood').textContent = food;
+    document.getElementById('tCoffee').textContent = coffee;
+    form.hidden = true;
+    doneWrap.hidden = false;
+    doneWrap.scrollIntoView({ block:'center' });
+  });
+
+  /* couples often share one phone — let them order again */
+  document.getElementById('againBtn').addEventListener('click', () => {
+    form.reset();
+    form.querySelectorAll('.opt-l').forEach(l => l.classList.remove('sel'));
+    syncSummary();
+    sendBtn.disabled = false;
+    sendBtn.textContent = 'Send my order';
+    doneWrap.hidden = true;
+    form.hidden = false;
+    document.getElementById('food').scrollIntoView({ block:'start' });
+  });
+
+  syncSummary();
+</script>
+</body>
+</html>
