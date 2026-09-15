@@ -87,6 +87,9 @@ function doPost(e) {
 }
 
 // Lets you confirm the deployment works by opening the /exec URL in a browser.
+// The version tag is how you can tell WHICH build is actually deployed: after a
+// "New version" deploy this must read v2-brunch. If it still says v1, the deploy
+// did not take and brunch orders are not reaching the Brunch tab yet.
 function doGet() {
-  return ContentService.createTextOutput('RSVP endpoint is live.');
+  return ContentService.createTextOutput('RSVP endpoint is live. [v2-brunch]');
 }
