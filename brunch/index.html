@@ -21,7 +21,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%98%95%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Noto+Serif+Georgian:wght@500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#E1EFEE; --bg-2:#CCE6E6; --paper:#FFFFFF;
@@ -29,6 +29,7 @@
     --sea:#075BB4; --sea-light:#6FCAD6; --sea-pale:#C6E7EC;
     --gold:#FF7653; --pink:#EC8CBC; --green:#2E9E5B; --line:#BCDBDC;
     --serif:'Cormorant Garamond', Georgia, serif;
+    --serif-ge:'Noto Serif Georgian', 'Cormorant Garamond', Georgia, serif;
     --sans:'Jost', system-ui, sans-serif;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -61,6 +62,7 @@
   .eyebrow{ font-size:12px; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); font-weight:500; }
   header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(52px,16vw,80px); line-height:.95; color:var(--ink); margin:10px 0 8px; }
   header .sub{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink-soft); }
+  header .name-ge{ font-family:var(--serif-ge); font-weight:500; font-size:clamp(23px,7vw,32px); line-height:1.25; color:var(--sea); margin:-2px 0 8px; }
   .header-doodle{ position:absolute; opacity:.9; animation:float 8s ease-in-out infinite; }
   .header-doodle.a{ top:16px; left:-2px; color:#36AEBE; }
   .header-doodle.b{ top:30px; right:-2px; color:var(--gold); animation-delay:-3s; }
@@ -178,6 +180,7 @@
     <span class="header-doodle b"><svg class="ill" width="32" height="32"><use href="#i-sun"/></svg></span>
     <div class="eyebrow">The morning after</div>
     <h1>Brunch</h1>
+    <p class="name-ge" lang="ka">ნამცხეცობა</p>
     <p class="sub">one more round, together</p>
     <div class="rule"></div>
   </header>
