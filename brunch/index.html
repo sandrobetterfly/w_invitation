@@ -50,15 +50,11 @@
   .ill{ display:block; }
   .wrap{ width:100%; max-width:600px; margin:0 auto; padding:0 22px calc(env(safe-area-inset-bottom) + 40px); position:relative; z-index:1; }
 
-  /* ---------- top bar ---------- */
-  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 66px 12px 22px; background:#3B82F6; }
   .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--gold); text-decoration:none; }
   .back svg{ width:16px; height:16px; }
-  .topbar .back{ color:#fff; }
-  .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:#fff; }
 
   /* ---------- header ---------- */
-  header{ text-align:center; padding:34px 0 4px; position:relative; }
+  header{ text-align:center; padding:62px 0 4px; position:relative; }
   .eyebrow{ font-size:12px; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); font-weight:500; }
   header h1{ font-family:var(--serif); font-weight:600; font-size:clamp(52px,16vw,80px); line-height:.95; color:var(--ink); margin:10px 0 8px; }
   header .sub{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink-soft); }
@@ -153,7 +149,6 @@
   footer .back{ margin-top:18px; }
 
   @media (max-width:420px){
-    .topbar .names{ font-size:16px; }
     .sec-note{ margin-left:0; }
     .opts.two .opt-l b{ font-size:16px; }
     .sent .ticket span{ width:56px; }
@@ -212,10 +207,6 @@
 </defs></svg>
 
 <div class="wrap">
-  <div class="topbar">
-    <a class="back" href="../details/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Wedding day</a>
-    <span class="names">Sandro &amp; Kopi</span>
-  </div>
 
   <header>
     <span class="header-doodle a"><svg class="ill" width="40" height="40"><use href="#i-olive"/></svg></span>

@@ -49,12 +49,8 @@
   .ill{ display:block; }
   .wrap{ width:100%; max-width:600px; margin:0 auto; padding:0 22px calc(env(safe-area-inset-bottom) + 40px); position:relative; z-index:1; }
 
-  /* ---------- top bar ---------- */
-  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 66px 12px 22px; background:#3B82F6; }
   .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--gold); text-decoration:none; }
   .back svg{ width:16px; height:16px; }
-  .topbar .back{ color:#fff; }
-  .topbar .names{ font-family:var(--serif); font-weight:600; font-size:18px; color:#fff; }
 
   /* ---------- header ---------- */
   header{ text-align:center; padding:30px 0 6px; position:relative; }
@@ -174,7 +170,6 @@
   footer .back{ margin-top:18px; }
 
   @media (max-width:420px){
-    .topbar .names{ font-size:16px; }
     .guide-photo{ height:310px; margin-bottom:-228px; }
     .header-copy{ min-height:286px; padding-top:112px; }
     .quick-link{ font-size:12.5px; padding:9px 10px; }
@@ -250,10 +245,6 @@
 </defs></svg>
 
 <div class="wrap">
-  <div class="topbar">
-    <a class="back" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Invitation</a>
-    <span class="names">Sandro &amp; Kopi</span>
-  </div>
 
   <header>
     <div class="guide-photo" aria-hidden="true">
