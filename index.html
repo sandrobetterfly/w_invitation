@@ -390,7 +390,7 @@
     </div>
     <div class="eyebrow lg reveal" style="--d:.3s">Save the Date</div>
     <div class="rule reveal" style="--d:.36s"></div>
-    <p class="hero-when reveal" style="--d:.45s">Syros, Greece · 15.09.2026</p>
+    <p class="hero-when reveal" style="--d:.45s">Syros, Greece · 15.09.2027</p>
     <a class="guide-link reveal" href="/details" style="--d:.55s">Guest guide
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
@@ -549,19 +549,27 @@
 
   /* Always open on the first screen. Scroll-snap is what makes the browser snap
      back to the previously viewed screen on reload, so we keep snapping OFF until
-     the page has fully loaded (all reflows done) and we've reset to the top —
-     then enable it. */
+     the page has settled and we've reset to the top — then enable it.
+
+     A single timeout is not enough: the video and cover image finish decoding
+     after load, which grows the document, and the restored scroll position comes
+     back *after* a one-shot reset has already run — dropping visitors on screen 2
+     or 3. So we pin the top across every frame of a short window instead, and do
+     it on each pageshow (normal load AND back/forward-cache restore). */
   const root = document.documentElement;
   const toTop = () => window.scrollTo(0, 0);
-  function snapOn(){ toTop(); root.classList.add('snap'); }
-  function armSnap(){ setTimeout(snapOn, 60); }
+  const PIN_MS = 450;
+  function pinTop(){
+    root.classList.remove('snap');
+    const until = performance.now() + PIN_MS;
+    requestAnimationFrame(function frame(){
+      toTop();
+      if(performance.now() < until) requestAnimationFrame(frame);
+      else root.classList.add('snap');
+    });
+  }
   toTop();
-  if(document.readyState === 'complete') armSnap();
-  else addEventListener('load', armSnap);
-  /* back/forward cache restore (e.g. Back button): reset + re-enable snapping */
-  addEventListener('pageshow', (e) => {
-    if(e.persisted){ root.classList.remove('snap'); toTop(); armSnap(); }
-  });
+  addEventListener('pageshow', pinTop);
 
   /* generate the hand-drawn wavy borders for the photo + video frames */
   function wavyPath(w,h,amp,wl){
