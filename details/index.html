@@ -50,7 +50,7 @@
   .wrap{ width:100%; max-width:600px; margin:0 auto; padding:0 22px calc(env(safe-area-inset-bottom) + 40px); position:relative; z-index:1; }
 
   /* ---------- top bar ---------- */
-  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 22px 8px; background:#3B82F6; }
+  .topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 -22px; padding:14px 66px 12px 22px; background:#3B82F6; }
   .back{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--gold); text-decoration:none; }
   .back svg{ width:16px; height:16px; }
   .topbar .back{ color:#fff; }
@@ -195,6 +195,39 @@
     *{ animation:none !important; }
     .section{ opacity:1 !important; transform:none !important; }
     html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- site menu (burger) ---------- */
+  .burger{ position:fixed; top:9px; right:12px; z-index:45; width:42px; height:42px; padding:0; border-radius:50%;
+    border:1px solid rgba(255,255,255,.6); background:rgba(255,255,255,.94); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 10px 24px -12px rgba(10,70,130,.6); }
+  .burger span{ display:block; width:17px; height:2px; border-radius:2px; background:var(--gold); transition:transform .28s cubic-bezier(.2,.7,.2,1), opacity .2s ease; }
+  .burger span + span{ margin-top:4px; }
+  .burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+  .burger:active{ transform:scale(.95); }
+
+  .navsheet{ position:fixed; inset:0; z-index:44; background:rgba(10,70,130,.34); -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+    opacity:0; visibility:hidden; transition:opacity .26s ease, visibility .26s; }
+  .navsheet.open{ opacity:1; visibility:visible; }
+  .navsheet-card{ position:absolute; top:60px; right:12px; width:min(290px, calc(100vw - 24px)); background:var(--paper); border-radius:20px; padding:9px;
+    box-shadow:0 30px 60px -24px rgba(10,70,130,.65); transform:translateY(-10px) scale(.97); opacity:0;
+    transition:transform .26s cubic-bezier(.2,.7,.2,1), opacity .26s ease; }
+  .navsheet.open .navsheet-card{ transform:none; opacity:1; }
+  .navsheet-t{ font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-soft); padding:8px 12px 7px; }
+  .navsheet a{ display:flex; align-items:center; gap:12px; padding:11px 12px; border-radius:14px; text-decoration:none; color:var(--ink); }
+  .navsheet a + a{ margin-top:1px; }
+  .navsheet a:active{ background:#F1F9F9; }
+  .navsheet .ico{ flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--sea-pale); color:var(--sea); }
+  .navsheet .ico svg{ width:18px; height:18px; }
+  .navsheet b{ display:block; font-family:var(--serif); font-size:18px; font-weight:600; line-height:1.15; }
+  .navsheet em{ display:block; font-style:normal; font-size:12.5px; color:var(--ink-soft); line-height:1.35; margin-top:1px; }
+  .navsheet a[aria-current="page"]{ background:#FFF5F1; }
+  .navsheet a[aria-current="page"] .ico{ background:#FFE2D8; color:var(--gold); }
+  .navsheet a[aria-current="page"] b{ color:var(--gold); }
+  @media (prefers-reduced-motion:reduce){
+    .burger span, .navsheet, .navsheet-card{ transition:none !important; }
   }
 </style>
 </head>
@@ -461,6 +494,35 @@
 
     tick();
     setInterval(tick, 1000);
+  })();
+</script>
+
+<!-- site menu -->
+<button class="burger" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navSheet">
+  <span></span><span></span><span></span>
+</button>
+<div class="navsheet" id="navSheet" role="dialog" aria-modal="true" aria-label="Site menu">
+  <nav class="navsheet-card">
+    <div class="navsheet-t">Sandro &amp; Kopi</div>
+      <a href="../"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4S4.6 14.9 4.6 9.7A4.3 4.3 0 0 1 12 6.9a4.3 4.3 0 0 1 7.4 2.8c0 5.2-7.4 10.7-7.4 10.7Z"/></svg></span><span><b>Invitation</b><em>Save the date</em></span></a>
+      <a href="../details/" aria-current="page"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.4V12l3.2 2"/></svg></span><span><b>Wedding day</b><em>Schedule &amp; ceremony</em></span></a>
+      <a href="../seating/"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="3.9" r="1.9"/><circle cx="12" cy="20.1" r="1.9"/><circle cx="3.9" cy="12" r="1.9"/><circle cx="20.1" cy="12" r="1.9"/></svg></span><span><b>Find your table</b><em>Search for your name</em></span></a>
+      <a href="../brunch/"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 8.6h13v6a4.4 4.4 0 0 1-4.4 4.4H8.2a4.4 4.4 0 0 1-4.4-4.4Z"/><path d="M16.8 10h1.9a2.4 2.4 0 0 1 0 4.8h-1.9"/><path d="M2.6 21.4h15.4"/></svg></span><span><b>Brunch</b><em>Menu &amp; pre-order</em></span></a>
+  </nav>
+</div>
+<script>
+  (function(){
+    var btn = document.getElementById('navBtn'), sheet = document.getElementById('navSheet');
+    if(!btn || !sheet) return;
+    function setOpen(v){
+      sheet.classList.toggle('open', v);
+      btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+      btn.setAttribute('aria-label', v ? 'Close menu' : 'Open menu');
+      if(v) { var f = sheet.querySelector('a'); if(f) setTimeout(function(){ f.focus(); }, 180); }
+    }
+    btn.addEventListener('click', function(e){ e.stopPropagation(); setOpen(!sheet.classList.contains('open')); });
+    sheet.addEventListener('click', function(e){ if(e.target === sheet) setOpen(false); });
+    addEventListener('keydown', function(e){ if(e.key === 'Escape' && sheet.classList.contains('open')) setOpen(false); });
   })();
 </script>
 </body>
