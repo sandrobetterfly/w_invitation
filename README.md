@@ -1,74 +1,70 @@
-# Sandro & Kopi — Save the Date
+# Sandro & Kopi — wedding site (portfolio demo)
 
-A single-file, mobile-first wedding Save-the-Date for **Syros, Greece · 13 September 2026**.
-Three scroll-snapping screens: a wavy-framed photo, an interactive map of the Cyclades,
-and an autoplaying video with a live countdown + RSVP popup.
+A four-page, mobile-first wedding site for **Syros, Greece**, built as a plain
+static site: hand-written HTML/CSS/JS, **inline in single files**. No framework,
+no build step, no npm, no external JS dependencies.
 
-Everything lives in **`index.html`** (HTML, CSS, JS inline). The only assets are
-`cover.jpg` (photo) and `wedding.mp4` (video). No build step.
+It began as a real Save-the-Date and now serves as a **portfolio piece** — a
+working demo shown to prospective clients who want something similar.
 
----
+**Live:** https://wedding.khasia.ge · also https://sandrobetterfly.github.io/w_invitation/
 
-## ⚙️ Before you send it — set these two things
+| Page | File | What it demonstrates |
+|---|---|---|
+| `/` | `index.html` | 3-screen scroll-snap: cover, "guess the island" game, film + RSVP |
+| `/details` | `details/index.html` | Live countdown, wedding-day schedule, embedded map |
+| `/seating` | `seating/index.html` | Bilingual search — type latin `nino`, find Georgian `ნინო` |
+| `/brunch` | `brunch/index.html` | Menu pre-ordering, dish + coffee, writes to a Google Sheet |
 
-Both are in the `CONFIG` block near the bottom of `index.html`, inside `<script>`:
+Every page carries the same burger menu (top-right) linking all four.
 
-1. **Go-live date** — drives the 7-day RSVP countdown:
-   ```js
-   const GO_LIVE = new Date('2026-06-14T12:00:00'); // ← change to the day you send the invite
-   ```
-   The reply deadline is automatically `GO_LIVE + 7 days`.
-
-2. **RSVP → Google Sheet** (optional) — paste your Apps Script web-app URL:
-   ```js
-   const RSVP_ENDPOINT = ''; // ← '' = popup works but does not save
-   ```
-   Setup steps are in `rsvp-apps-script.gs`. Until set, the RSVP popup still works (it just
-   shows the thank-you message without recording the response).
+> **The dates show September 2027 on purpose.** The real wedding was 15 Sep 2026;
+> the demo date is rolled forward so the countdown runs and nothing reads as
+> expired to a prospective client. See `CLAUDE.md` §6 before changing it.
 
 ---
 
-## 🚀 Deploy to GitHub Pages
+## Local preview
 
-From this folder:
+`python3 -m http.server` is sandbox-blocked on this machine, so use the bundled
+Node server (it serves directory indexes, which the clean URLs need):
 
 ```bash
-git init
-git add .
-git commit -m "Save the date site"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo>.git
-git push -u origin main
+node .claude/serve.js
 ```
 
-Then on GitHub: **Settings → Pages → Source: Deploy from a branch → `main` / `/ (root)` → Save.**
-After ~1 minute your site is live at `https://<your-username>.github.io/<repo>/`.
+Then open http://localhost:4599 — and `/details`, `/seating`, `/brunch`.
 
-> Tip: for a nicer link preview when you share it, set `og:image` in `index.html` to the
-> full URL of your cover image (e.g. `https://<user>.github.io/<repo>/cover.jpg`).
+**No build. No test suite.** The files in the repo *are* the deploy artifact.
 
 ---
 
-## 🖼 Replacing the photo or video
+## Deploy
 
-- **Photo:** replace `cover.jpg` (portrait works best — it fills a 4:5 frame).
-- **Video:** replace `wedding.mp4` with a web-optimized **H.264 MP4** (not `.mov`/HEVC).
-  It plays in a small portrait frame, so ~540p is plenty. On a Mac you can convert with:
-  ```bash
-  avconvert -p Preset960x540 -s your-clip.mov -o wedding.mp4 --replace
-  ```
-
----
-
-## 🔍 Local preview
-
-Any static server works, e.g.:
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+git add <files> && git commit -m "..."
+git push origin main          # GitHub Pages auto-builds (~1 min)
 ```
+
+⚠️ `wedding.khasia.ge` is fronted by Cloudflare, so a **brand-new path** can 404
+there for a few minutes after the GitHub build goes green. The `github.io` URL
+updates first. Details and the fix in `CLAUDE.md` §6.
+
+---
+
+## Forms
+
+Both the RSVP popup (`/`) and the brunch order (`/brunch`) POST to the same
+Google Apps Script web app, which writes to two tabs of one sheet — `RSVPs` and
+`Brunch`. Source and deploy steps: `rsvp-apps-script.gs`.
+
+Check which build is deployed by opening the `/exec` URL — it should say
+`RSVP endpoint is live. [v2-brunch]`.
 
 ---
 
 ## Notes
+
 - Fonts load from Google Fonts (needs internet). Everything else is self-contained.
-- Respects `prefers-reduced-motion`. Works offline except for the web fonts.
+- Respects `prefers-reduced-motion`.
+- Full architecture, design tokens, gotchas and command recipes: **`CLAUDE.md`**.
